@@ -1,0 +1,5 @@
+C:\xcommands\xcmd\compiled\ls\ls\bin\Debug\ls.exe
+C:\xcommands\xcmd\compiled\ls\ls\bin\Debug\ls.pdb
+C:\xcommands\xcmd\compiled\ls\ls\obj\Debug\ls.csprojResolveAssemblyReference.cache
+C:\xcommands\xcmd\compiled\ls\ls\obj\Debug\ls.exe
+C:\xcommands\xcmd\compiled\ls\ls\obj\Debug\ls.pdb

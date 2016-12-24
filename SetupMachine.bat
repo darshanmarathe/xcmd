@@ -7,61 +7,61 @@ echo "Installed chocolety"
 pause
 cls
 echo "Installing browsers"
-choco install googlechrome -y
-choco install firefox -y
-choco install opera -y 
+choco install googlechrome "%*"
+choco install firefox "%*"
+choco install opera "%*" 
 cls 
 echo "Installing source control tools"
-choco install git -y
-choco install git.install -y
-choco install gitextensions -y
-choco install meld -y
-choco install tortoisesvn -y
-choco install sourcetree -y
+choco install git "%*"
+choco install git.install "%*"
+choco install gitextensions "%*"
+choco install meld "%*"
+choco install tortoisesvn "%*"
+choco install sourcetree "%*"
 
 cls 
 
 echo "Installing Programing frameworks"
-choco install nodejs -y
-choco install nodejs.install -y
-choco install javaruntime -y
-choco install dotnet4.5 -y
-choco install scriptcs -y
-choco install powershell -y
-choco install ruby -y
-choco install python -y
-choco install wget -y
+choco install nodejs "%*"
+choco install nodejs.install "%*"
+choco install javaruntime "%*"
+choco install dotnet4.5 "%*"
+choco install scriptcs "%*"
+choco install powershell "%*"
+choco install ruby "%*"
+choco install python "%*"
+choco install wget "%*"
 
 
 cls
 echo "Installing Light weight editors"
- choco install notepadplusplus.install -y
- choco install atom -y
- choco install sublimetext3 -y
- choco install visualstudiocode -y 
- choco install brackets -y
+ choco install notepadplusplus.install "%*"
+ choco install atom "%*"
+ choco install sublimetext3 "%*"
+ choco install visualstudiocode "%*" 
+ choco install brackets "%*"
 
 cls
 echo "Installing Important Softwares"
-choco install libreoffice -y
-choco install winmerge-y
-choco install 7zip -y
-choco install 7zip.install -y
-choco install vlc -y
-choco install skype -y
-choco install filezilla -y
-choco install virtualbox -y
-choco install thunderbird -y
-choco install fiddler -y
-choco install teamviewer -y
-choco install slack -y
+choco install libreoffice "%*"
+choco install winmerge"%*"
+choco install 7zip "%*"
+choco install 7zip.install "%*"
+choco install vlc "%*"
+choco install skype "%*"
+choco install filezilla "%*"
+choco install virtualbox "%*"
+choco install thunderbird "%*"
+choco install fiddler "%*"
+choco install teamviewer "%*"
+choco install slack "%*"
 
 
 cls
 echo "Installing database tools and a mid level IDE"
-choco install mssqlserver2014express -y
-choco install mssqlservermanagementstudio2014express -y
-choco install monodevelop
+choco install mssqlserver2014express "%*"
+choco install mssqlservermanagementstudio2014express "%*"
+choco install monodevelop "%*"
 
 
 cls

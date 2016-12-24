@@ -1,0 +1,5 @@
+C:\xcommands\xcmd\compiled\cat\cat\bin\Debug\cat.exe
+C:\xcommands\xcmd\compiled\cat\cat\bin\Debug\cat.pdb
+C:\xcommands\xcmd\compiled\cat\cat\obj\Debug\cat.csprojResolveAssemblyReference.cache
+C:\xcommands\xcmd\compiled\cat\cat\obj\Debug\cat.exe
+C:\xcommands\xcmd\compiled\cat\cat\obj\Debug\cat.pdb

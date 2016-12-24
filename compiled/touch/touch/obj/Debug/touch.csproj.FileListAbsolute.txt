@@ -1,0 +1,5 @@
+C:\xcommands\xcmd\compiled\touch\touch\obj\Debug\touch.csprojResolveAssemblyReference.cache
+C:\xcommands\xcmd\compiled\touch\touch\bin\Debug\touch.exe
+C:\xcommands\xcmd\compiled\touch\touch\bin\Debug\touch.pdb
+C:\xcommands\xcmd\compiled\touch\touch\obj\Debug\touch.exe
+C:\xcommands\xcmd\compiled\touch\touch\obj\Debug\touch.pdb
