@@ -13,8 +13,8 @@ echo "Installing browsers"
 choco install googlechrome "%*"
 choco install firefox "%*"
 choco install opera "%*" 
-choco install chromium
-choco install maxthon
+choco install chromium "%*"
+choco install maxthon "%*"
 
 
 cls 
@@ -25,8 +25,8 @@ choco install gitextensions "%*"
 choco install meld "%*"
 choco install tortoisesvn "%*"
 choco install sourcetree "%*"
-choco install hg
-choco install gitkraken
+choco install hg "%*"
+choco install gitkraken "%*"
 
 cls 
 
@@ -39,15 +39,15 @@ choco install powershell4 "%*"
 choco install ruby "%*"
 choco install python "%*"
 choco install jdk9 "%*"
-choco install golang
-choco install erlang
-choco install dotnetcore-sdk
-choco install elixir
-choco install mono
-choco install rust
-choco install lua
-choco install gtksharp
-choco install julia
+choco install golang "%*"
+choco install erlang "%*"
+choco install dotnetcore-sdk "%*"
+choco install elixir "%*"
+choco install mono "%*"
+choco install rust "%*"
+choco install lua "%*"
+choco install gtksharp "%*"
+choco install julia "%*"
 
 cls
 echo "Installing Light weight editors"
@@ -57,8 +57,8 @@ choco install sublimetext3 "%*"
 choco install visualstudiocode "%*" 
 choco install brackets "%*"
 choco install vim "%*"
-choco install emacs
-choco install markdownpad2
+choco install emacs "%*"
+choco install markdownpad2 "%*"
 
 cls
 echo "Installing Important Softwares"
@@ -75,13 +75,13 @@ choco install fiddler4 "%*"
 choco install teamviewer "%*"
 choco install slack "%*"
 choco install camstudio "%*"
-choco install putty.install
-choco install gimp
-choco install autohotkey.install
-choco install f.lux
-choco install postman
-choco install httrack
-choco install pencil
+choco install putty.install "%*"
+choco install gimp "%*"
+choco install autohotkey.install "%*"
+choco install f.lux "%*"
+choco install postman "%*"
+choco install httrack "%*"
+choco install pencil "%*"
 
 cls 
 echo "installing cool utilities"
@@ -95,18 +95,18 @@ cls
 echo "Installing database tools "
 choco install mssqlserver2014express "%*"
 choco install mssqlservermanagementstudio2014express "%*"
-choco install mongodb 
-choco install robomongo
-choco install postgresql
-choco install redis
-choco install neo4j-community
+choco install mongodb  "%*"
+choco install robomongo "%*"
+choco install postgresql "%*"
+choco install redis "%*"
+choco install neo4j-community "%*"
 
 
 cls
 echo "cloud control"
-choco install heroku-cli
-choco install azure-cli
-choco install awscli
+choco install heroku-cli "%*"
+choco install azure-cli "%*"
+choco install awscli "%*"
 
 
 cls 
@@ -116,9 +116,9 @@ choco install intellijidea-community "%*"
 choco install eclipse  "%*"
 choco install netbeans "%*"
 choco install liteide "%*"
-choco install bluej
-choco install pycharm-community
-choco install visualstudio2017community 
+choco install bluej "%*"
+choco install pycharm-community "%*"
+choco install visualstudio2017community  "%*"
 cls
 
 echo "listing all choco packages"
