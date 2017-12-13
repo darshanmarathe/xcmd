@@ -48,6 +48,8 @@ choco install rust "%*"
 choco install lua "%*"
 choco install gtksharp "%*"
 choco install julia "%*"
+choco install android-sdk "%*"
+
 
 cls
 echo "Installing Light weight editors"
@@ -107,12 +109,14 @@ echo "cloud control"
 choco install heroku-cli "%*"
 choco install azure-cli "%*"
 choco install awscli "%*"
+choco install carina "%*"
 
 
 cls 
 echo "Installing IDE"
 choco install monodevelop "%*"
 choco install intellijidea-community "%*"
+choco install androidstudio  "%*"
 choco install eclipse  "%*"
 choco install netbeans "%*"
 choco install liteide "%*"
@@ -123,7 +127,7 @@ cls
 
 echo "listing all choco packages"
 choco list -lo
-
+pause
 
 
 cls
