@@ -6,6 +6,8 @@ pause
 echo "Installed chocolety"
 cls 
 echo "Testing chocolatey"
+choco install chocolatey-core.extension -y
+choco list -lo
 choco upgrade all -y
 pause
 cls
@@ -15,6 +17,7 @@ choco install firefox "%*"
 choco install opera "%*" 
 choco install chromium "%*"
 choco install maxthon "%*"
+choco install midori-browser "%*"
 
 
 cls 
@@ -64,6 +67,7 @@ choco install markdownpad2 "%*"
 
 cls
 echo "Installing Important Softwares"
+choco install autohotkey.install "%*"
 choco install libreoffice "%*"
 choco install winmerge"%*"
 choco install 7zip "%*"
@@ -73,7 +77,7 @@ choco install skype "%*"
 choco install filezilla "%*"
 choco install virtualbox "%*"
 choco install thunderbird "%*"
-choco install fiddler4 "%*"
+choco install wireshark "%*"
 choco install teamviewer "%*"
 choco install slack "%*"
 choco install camstudio "%*"
@@ -104,6 +108,7 @@ choco install robomongo "%*"
 choco install postgresql "%*"
 choco install redis "%*"
 choco install neo4j-community "%*"
+choco install solr "%*"
 
 
 cls
