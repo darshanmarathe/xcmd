@@ -84,6 +84,8 @@ choco install f.lux "%*"
 choco install postman "%*"
 choco install httrack "%*"
 choco install pencil "%*"
+choco install evernote  "%*"
+choco install sysinternals "%*"
 
 cls 
 echo "installing cool utilities"
@@ -113,8 +115,9 @@ choco install carina "%*"
 
 
 cls 
-echo "Installing IDE"
+echo "Installing IDEs"
 choco install monodevelop "%*"
+choco install sharpdevelop "%*"
 choco install intellijidea-community "%*"
 choco install androidstudio  "%*"
 choco install eclipse  "%*"
