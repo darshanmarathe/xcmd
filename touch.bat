@@ -1,2 +1,2 @@
 @echo off
-scriptcs %~dp0touch.csx -- %*
+scriptcs %~dp0touch.csx -- %* %cd%

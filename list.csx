@@ -3,15 +3,16 @@ using System.IO;
 
 System.Console.WriteLine("");
 
-var DirsArr = Directory.GetDirectories(System.Environment.CurrentDirectory);
-System.Console.WriteLine(" " + DirsArr.Count().ToString() +" directories in " + System.Environment.CurrentDirectory);
+var CurrentDirectory = Env.ScriptArgs[0];
+var DirsArr = Directory.GetDirectories(CurrentDirectory);
+System.Console.WriteLine(" " + DirsArr.Count().ToString() +" directories in " + CurrentDirectory);
 
-var filearr = Directory.GetFiles(System.Environment.CurrentDirectory);
-System.Console.WriteLine(" " + filearr.Count().ToString() +" files in " + System.Environment.CurrentDirectory);
+var filearr = Directory.GetFiles(CurrentDirectory);
+System.Console.WriteLine(" " + filearr.Count().ToString() +" files in " + CurrentDirectory);
 System.Console.WriteLine("");
 if(Env.ScriptArgs.Count > 0)
 {
-        if (Env.ScriptArgs[0] == "-l")
+        if (Env.ScriptArgs[1] == "-l")
         {
           
           Console.ForegroundColor = ConsoleColor.DarkGreen;  
@@ -38,7 +39,7 @@ void Print(string[] arr){
     
     foreach (var file in arr)
     {
-        System.Console.Write(file.Replace(System.Environment.CurrentDirectory + @"\" , ""));
+        System.Console.Write(file.Replace(CurrentDirectory + @"\" , ""));
         System.Console.Write("   ");
     }
     System.Console.WriteLine("");    
@@ -52,7 +53,7 @@ void PrintList(string[] arr , bool isFile){
         DateTime dtCreationTime = oFileInfo.LastWriteTime;
         System.Console.Write(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " +  oFileInfo.Extension + "  ");
         }
-        System.Console.WriteLine(file.Replace(System.Environment.CurrentDirectory + @"\" , ""));
+        System.Console.WriteLine(file.Replace(CurrentDirectory + @"\" , ""));
         
     }
     System.Console.WriteLine("");

@@ -1,2 +1,2 @@
 @echo off
-scriptcs %~dp0cat.csx -- %*
+scriptcs %~dp0cat.csx -- %cd% %*

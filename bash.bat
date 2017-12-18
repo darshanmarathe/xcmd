@@ -1,2 +1,2 @@
 @echo off
-start C:\Softwares\Git\git-bash.exe
+"%ProgramFiles%\Git\bin\bash.exe"
