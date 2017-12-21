@@ -1,2 +1,3 @@
 @echo off
-Code .
+atom .
+

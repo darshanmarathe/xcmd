@@ -10,7 +10,7 @@ var  ArgsArray = Env.ScriptArgs.Take(Env.ScriptArgs.Count() - 1).ToArray();
 
 foreach (var item in ArgsArray)
 {
-    //  System.Threading.Thread.Sleep(1000);
+ System.Console.WriteLine("=>"  + item);
     if (item == "..")
     {
 
@@ -28,7 +28,7 @@ foreach (var item in ArgsArray)
     {
         System.Console.WriteLine("creating file " + item);
         if (currentfolder.Count == 0)
-            File.Create(item);
+            File.Create(Join(currentfolder) + @"\" + item);
         else
             File.Create(Join(currentfolder) + @"\" + item);
     }
