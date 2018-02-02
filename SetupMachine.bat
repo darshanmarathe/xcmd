@@ -2,7 +2,7 @@
 echo "Welcome to infoxTech Machine Setup Program"
 echo "Installing chocolaty now make sure you are running in admin mode only"
 pause
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+rem @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 echo "Installed chocolety"
 cls 
 echo "Testing chocolatey"
@@ -52,10 +52,11 @@ choco install lua "%*"
 choco install gtksharp "%*"
 choco install julia "%*"
 choco install android-sdk "%*"
-
+choco install electron "%*"
 
 cls
 echo "Installing Light weight editors"
+choco install sourcecodepro  "%*"
 choco install notepadplusplus.install "%*"
 choco install atom "%*"
 choco install sublimetext3 "%*"
@@ -90,6 +91,10 @@ choco install httrack "%*"
 choco install pencil "%*"
 choco install evernote  "%*"
 choco install sysinternals "%*"
+choco install dropbox "%*"  
+choco install httrack.app "%*"
+
+
 
 cls 
 echo "installing cool utilities"
@@ -97,7 +102,9 @@ choco install wget "%*"
 choco install curl "%*"
 choco install ffmpeg "%*"
 choco install scriptcs "%*"
-
+choco install openssl.light "%*" 
+ choco install opencv "%*"
+ choco install prefix "%*"
 
 cls
 echo "Installing database tools "
@@ -117,6 +124,7 @@ choco install heroku-cli "%*"
 choco install azure-cli "%*"
 choco install awscli "%*"
 choco install carina "%*"
+choco install cloudfoundry-cli "%*"
 
 
 cls 
@@ -131,6 +139,10 @@ choco install liteide "%*"
 choco install bluej "%*"
 choco install pycharm-community "%*"
 choco install visualstudio2017community  "%*"
+cls
+
+echo "Installing Antivirus"
+choco install avgantivirusfree "%*"
 cls
 
 echo "listing all choco packages"

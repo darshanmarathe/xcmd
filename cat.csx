@@ -1,6 +1,7 @@
 System.Console.WriteLine("");
         // Read each line of the file into a string array. Each element
         // of the array is one line of the file.
+        System.Console.WriteLine(Env.ScriptArgs[0] + "\\" + Env.ScriptArgs[1]);
         string[] lines = System.IO.File.ReadAllLines(Env.ScriptArgs[0] + "\\" + Env.ScriptArgs[1]);
           
         if (Env.ScriptArgs.Count() > 2  && Env.ScriptArgs[2] == "-l")
