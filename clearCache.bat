@@ -1,0 +1,1 @@
+rmdir .scriptcs_cache /s /Q
