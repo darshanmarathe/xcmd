@@ -1,1 +1,1 @@
-rmdir .scriptcs_cache /s /Q
+rmdir %~dp0.scriptcs_cache /s /Q
