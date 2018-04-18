@@ -1,3 +1,4 @@
 @echo off
-scriptcs %~dp0touch.csx -- %* %cd%
+scriptcs %~dp0touch.csx -C -- %* %cd%
+ls %1 -l
 code .
