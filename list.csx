@@ -2,8 +2,13 @@ using System;
 using System.IO;
 
 System.Console.WriteLine("");
-
 var CurrentDirectory = Env.ScriptArgs[0];
+var extraDir = Env.ScriptArgs[1];
+if (extraDir != "-l")
+{
+    CurrentDirectory += "\\" + extraDir;
+    Console.Write(CurrentDirectory);
+}
 var DirsArr = Directory.GetDirectories(CurrentDirectory);
 System.Console.WriteLine(" " + DirsArr.Count().ToString() +" directories in " + CurrentDirectory);
 
@@ -12,7 +17,7 @@ System.Console.WriteLine(" " + filearr.Count().ToString() +" files in " + Curren
 System.Console.WriteLine("");
 if(Env.ScriptArgs.Count > 0)
 {
-        if (Env.ScriptArgs[1] == "-l")
+        if (Env.ScriptArgs[1] == "-l" || Env.ScriptArgs[2] == "-l")
         {
           
           Console.ForegroundColor = ConsoleColor.DarkGreen;  
