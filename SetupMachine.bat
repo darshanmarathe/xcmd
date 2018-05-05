@@ -108,8 +108,8 @@ choco install openssl.light "%*"
 
 cls
 echo "Installing database tools "
-choco install mssqlserver2014express "%*"
-choco install mssqlservermanagementstudio2014express "%*"
+choco install sql-server-expresss "%*"
+choco install sql-server-management-studio "%*"
 choco install mongodb  "%*"
 choco install robomongo "%*"
 choco install postgresql "%*"
