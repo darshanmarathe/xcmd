@@ -1,0 +1,1 @@
+scriptcs %~dp0killcmd.csx -- %cd% %*
