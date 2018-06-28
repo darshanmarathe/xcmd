@@ -1,46 +1,55 @@
+#r "System.Windows.Forms"
+
+
+using System.Windows.Forms;
 using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Threading;
 
-System.Console.WriteLine("");
+
 var CurrentDirectory = Env.ScriptArgs[0];
-var extraDir = Env.ScriptArgs[1];
-if (extraDir != "-l")
-{
-    CurrentDirectory += "\\" + extraDir;
-}
-
-{
+var content = new List<string> ();
+WriteLine("");
 
     var DirsArr = Directory.GetDirectories(CurrentDirectory);
-    System.Console.WriteLine(" " + DirsArr.Count().ToString() + " directories in " + CurrentDirectory);
+    WriteLine(" " + DirsArr.Count().ToString() + " directories in " + CurrentDirectory);
 
     var filearr = Directory.GetFiles(CurrentDirectory);
-    System.Console.WriteLine(" " + filearr.Count().ToString() + " files in " + CurrentDirectory);
-    System.Console.WriteLine("");
-    if (Env.ScriptArgs.Count > 0)
-    {
-        if (IsSwitchAvaible("-l"))
-        {
+    WriteLine(" " + filearr.Count().ToString() + " files in " + CurrentDirectory);
+    WriteLine("");
 
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            PrintList(DirsArr, false);
-            Console.ForegroundColor = ConsoleColor.White;
-            PrintList(filearr, true);
-        }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Print(DirsArr , false);
-            Console.ForegroundColor = ConsoleColor.White;
-            Print(filearr, true);
-        }
+    if (IsSwitchAvaible("-l"))
+    {
+
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        PrintList(DirsArr, false);
+        Console.ForegroundColor = ConsoleColor.White;
+        PrintList(filearr, true);
+        Copy();
     }
     else
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Print(DirsArr , false);
         Console.ForegroundColor = ConsoleColor.White;
-        Print(filearr , true);
+        Print(filearr, true);
+        Copy();
+    }
+
+void Copy(){
+    if(IsSwitchAvaible("-c"))
+    {
+        var _content = string.Join("\n" , content);
+        Write(_content);
+        var thread = new Thread(() => {
+            Clipboard.SetText(_content);
+            System.Console.WriteLine("content copied to clipboard");
+        });
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.IsBackground = false;
+        thread.Start();
+        thread.Join();
     }
 
 }
@@ -54,16 +63,16 @@ void Print(string[] arr, bool isFile)
         {
             FileInfo oFileInfo = new FileInfo(file);
             DateTime dtCreationTime = oFileInfo.LastWriteTime;
-            System.Console.WriteLine(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  " + file.Replace(CurrentDirectory, ""));
+            WriteLine(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  " + file.Replace(CurrentDirectory, ""));
             
             continue;
         }
-        System.Console.Write(file.Replace(CurrentDirectory , ""));
-        System.Console.Write(" " );
+        Write(file.Replace(CurrentDirectory , ""));
+        Write(" " );
   
     }
-    System.Console.WriteLine("");
-    System.Console.WriteLine("");
+    WriteLine("");
+    WriteLine("");
 }
 
 void PrintList(string[] arr, bool isFile)
@@ -74,14 +83,23 @@ void PrintList(string[] arr, bool isFile)
         {
             FileInfo oFileInfo = new FileInfo(file);
             DateTime dtCreationTime = oFileInfo.LastWriteTime;
-            System.Console.Write(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  ");
+            Write(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  ");
         }
-        System.Console.WriteLine(file.Replace(CurrentDirectory + @"\", ""));
+        WriteLine(file.Replace(CurrentDirectory + @"\", ""));
 
     }
-    System.Console.WriteLine("");
+    WriteLine("");
 }
 
+void Write(string message){
+    content.Add(message);
+    System.Console.Write(message);
+}
+
+void WriteLine(string message){
+    content.Add(message);
+    System.Console.WriteLine(message);
+}
 
 
 bool IsSwitchAvaible(string swi){
