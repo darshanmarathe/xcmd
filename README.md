@@ -56,19 +56,19 @@ Just change this batch file for what ever your daily stuff pulling latest code o
 
 # Commands for Git (Making you lazy...)
 ## checkin
-checkin replacees git add .  / git commit  / git push so now in case of fire checkin 
+checkin replaces [git add .  / git commit -m "your comment here" / git push] so now in case of fire checkin 
 
     - checkin   
     - checkin "your comment here"
 
 ## branch
-Quickly check which branch you are on replaces git branch
+Quickly check which branch you are on replaces [git branch]
 
     - branch   
     - branch a (list all branches)
 
 ## status
-Quickly check what is the status of current branch you are on, replaces git status
+Quickly check what is the status of current branch you are on, replaces [git status]
 
     - status   
 
