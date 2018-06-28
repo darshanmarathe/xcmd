@@ -41,7 +41,6 @@ void Copy(){
     if(IsSwitchAvaible("-c"))
     {
         var _content = string.Join("\n" , content);
-        Write(_content);
         var thread = new Thread(() => {
             Clipboard.SetText(_content);
             System.Console.WriteLine("content copied to clipboard");

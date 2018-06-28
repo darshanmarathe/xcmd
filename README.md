@@ -72,6 +72,10 @@ Quickly check what is the status of current branch you are on, replaces [git sta
 
     - status   
 
+## clone
+Quickly clone repository [git clone]
+    - clone <reponame> 
+    - clone <reponame> <folderName>  
 
 
 # Commands Linux bash style(i call it bash++)
@@ -81,6 +85,13 @@ to see whats in file
     - cat <fileName>   
     - cat <fileName> -l  (to see line numbers)
     - cat <filename> -c  (see and copy to clipboard)
+
+## ls 
+to see whats in file 
+
+    - ls   
+    - ls -l  (to see with lines)
+    - ls -c  (see and copy to clipboard)
 
 
 # Commands Other 
