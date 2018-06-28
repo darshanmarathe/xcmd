@@ -1,2 +1,2 @@
 @echo off
-scriptcs %~dp0list.csx -C -- "%cd%" "%1"
+scriptcs %~dp0list.csx -- "%cd%" "%1"

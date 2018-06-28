@@ -19,7 +19,7 @@ if (extraDir != "-l")
     System.Console.WriteLine("");
     if (Env.ScriptArgs.Count > 0)
     {
-        if (Env.ScriptArgs[1] == "-l")
+        if (IsSwitchAvaible("-l"))
         {
 
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -80,4 +80,15 @@ void PrintList(string[] arr, bool isFile)
 
     }
     System.Console.WriteLine("");
+}
+
+
+
+bool IsSwitchAvaible(string swi){
+    foreach (var item in Env.ScriptArgs)
+    {
+        if(item == swi.ToLower() || item == swi.ToUpper())
+            return true; 
+    }
+    return false;
 }

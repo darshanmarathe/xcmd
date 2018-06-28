@@ -61,6 +61,18 @@ checkin replacees git add .  / git commit  / git push so now in case of fire che
     - checkin   
     - checkin "your comment here"
 
+## branch
+Quickly check which branch you are on replaces git branch
+
+    - branch   
+    - branch a (list all branches)
+
+## status
+Quickly check what is the status of current branch you are on, replaces git status
+
+    - status   
+
+
 
 # Commands Linux bash style(i call it bash++)
 ## cat 
