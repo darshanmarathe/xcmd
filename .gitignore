@@ -1,1 +1,8 @@
 .scriptcs_cache/
+*.exe
+ConEmu.map
+ConEmu.xml
+ConEmu/
+ConEmu64.map
+plugins/
+obj/
