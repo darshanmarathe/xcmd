@@ -39,11 +39,41 @@ MIT
 
 **Free Software, Hell Yeah!**
 
-# Commands
-
+# Commands (Making you lazy...)
 ## Setup Machine
 
 Installs chocolaty and sets up machine many of software like new languages like rust julia and other stuff
 
     - setupnacine
-    - setmachine -y (install all software by default)
+    - setupmachine -y (install all software by default)
+
+## StartWork
+
+Just change this batch file for what ever your daily stuff pulling latest code opening visual studio code just be lazy and automate everything
+
+    - startwork
+
+
+# Commands for Git (Making you lazy...)
+## checkin
+checkin replacees git add .  / git commit  / git push so now in case of fire checkin 
+
+    - checkin   
+    - checkin "your comment here"
+
+
+# Commands Linux bash style(i call it bash++)
+## cat 
+to see whats in file 
+
+    - cat <fileName>   
+    - cat <fileName> -l  (to see line numbers)
+    - cat <filename> -c  (see and copy to clipboard)
+
+
+# Commands Other 
+## bash
+
+Opens git bash in cmd you can exit command in bash to come back to cmd 
+   
+    - bash
