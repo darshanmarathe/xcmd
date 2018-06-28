@@ -8,7 +8,7 @@ if (extraDir != "-l")
 {
     CurrentDirectory += "\\" + extraDir;
 }
-if (!CurrentDirectory.Contains('.'))
+
 {
 
     var DirsArr = Directory.GetDirectories(CurrentDirectory);
@@ -19,7 +19,7 @@ if (!CurrentDirectory.Contains('.'))
     System.Console.WriteLine("");
     if (Env.ScriptArgs.Count > 0)
     {
-        if (Env.ScriptArgs[1] == "-l" || Env.ScriptArgs[2] == "-l")
+        if (Env.ScriptArgs[1] == "-l")
         {
 
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -30,30 +30,38 @@ if (!CurrentDirectory.Contains('.'))
         else
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Print(DirsArr);
+            Print(DirsArr , false);
             Console.ForegroundColor = ConsoleColor.White;
-            Print(filearr);
+            Print(filearr, true);
         }
     }
     else
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Print(DirsArr);
+        Print(DirsArr , false);
         Console.ForegroundColor = ConsoleColor.White;
-        Print(filearr);
+        Print(filearr , true);
     }
-}else{
-    System.Console.WriteLine("wrong input " + CurrentDirectory);
+
 }
 
-void Print(string[] arr)
+void Print(string[] arr, bool isFile)
 {
 
     foreach (var file in arr)
     {
-        System.Console.Write(file.Replace(CurrentDirectory + @"\", ""));
-        System.Console.Write("   ");
+        if (isFile)
+        {
+            FileInfo oFileInfo = new FileInfo(file);
+            DateTime dtCreationTime = oFileInfo.LastWriteTime;
+            System.Console.WriteLine(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  ");
+            continue;
+        }
+        System.Console.Write(file.Replace(CurrentDirectory , ""));
+        System.Console.Write(" " );
+  
     }
+    System.Console.WriteLine("");
     System.Console.WriteLine("");
 }
 
