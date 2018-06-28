@@ -42,7 +42,7 @@ MIT
 # Commands (Making you lazy...)
 ## Setup Machine
 
-Installs chocolaty and sets up machine many of software like new languages like rust julia and other stuff
+Installs chocolaty and sets up machine with many of software(s) for e.g new languages like rust, julia text editors like sublime, vscode, atom and much much more just look into batch file remove / add whatever you need and run it with -y flag and goto sleep/coffee/movie by the time you are back machine is ready 
 
     - setupnacine
     - setupmachine -y (install all software by default)
