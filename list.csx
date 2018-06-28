@@ -54,7 +54,8 @@ void Print(string[] arr, bool isFile)
         {
             FileInfo oFileInfo = new FileInfo(file);
             DateTime dtCreationTime = oFileInfo.LastWriteTime;
-            System.Console.WriteLine(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  ");
+            System.Console.WriteLine(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + dtCreationTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  " + file.Replace(CurrentDirectory, ""));
+            
             continue;
         }
         System.Console.Write(file.Replace(CurrentDirectory , ""));
