@@ -18,6 +18,7 @@ choco install opera "%*"
 choco install chromium "%*"
 choco install maxthon "%*"
 choco install midori-browser "%*"
+choco install vivaldi "%*"
 
 
 cls 
@@ -64,10 +65,13 @@ choco install visualstudiocode "%*"
 choco install brackets "%*"
 choco install vim "%*"
 choco install emacs "%*"
+choco install micro
 choco install markdownpad2 "%*"
+choco install scite "%*"
+
 
 cls
-echo "Installing Important Softwares"
+echo "Installing Important Softwares and office utilities"
 choco install autohotkey.install "%*"
 choco install libreoffice "%*"
 choco install winmerge"%*"
@@ -93,6 +97,11 @@ choco install evernote  "%*"
 choco install sysinternals "%*"
 choco install dropbox "%*"  
 choco install httrack.app "%*"
+choco install microsoft-teams "%*"
+choco install office365business
+choco install anydesk "%*"
+choco install projectlibre "%*" 
+choco install wps-office-free "%*"
 
 
 
@@ -103,8 +112,9 @@ choco install curl "%*"
 choco install ffmpeg "%*"
 choco install scriptcs "%*"
 choco install openssl.light "%*" 
- choco install opencv "%*"
- choco install prefix "%*"
+choco install opencv "%*"
+choco install prefix "%*"
+choco install whois  "%*"
 
 cls
 echo "Installing database tools "
@@ -116,7 +126,7 @@ choco install postgresql "%*"
 choco install redis "%*"
 choco install neo4j-community "%*"
 choco install solr "%*"
-
+choco install dbmigration "%*"
 
 cls
 echo "cloud control"
@@ -139,7 +149,15 @@ choco install liteide "%*"
 choco install bluej "%*"
 choco install pycharm-community "%*"
 choco install visualstudio2017community  "%*"
+choco install r.studio "%*"
+choco install kdevelop "%*"
 cls
+
+echo "Other Server products"
+choco install jenkins  "%*"
+choco install rabbitmq "%*"
+choco install nginx "%*"
+choco install apache-httpd "%*"
 
 echo "Installing Antivirus"
 choco install avgantivirusfree "%*"
