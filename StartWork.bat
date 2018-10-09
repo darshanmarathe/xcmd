@@ -4,6 +4,6 @@ c:
 cd\
 cd work
 cd opera
-code Opera.code-workspace
+codei Opera.code-workspace
 
 
