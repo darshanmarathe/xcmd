@@ -1,0 +1,1 @@
+"C:\Users\dmarathe\AppData\Local\Programs\Microsoft VS Code Insiders\Code - Insiders.exe" %1
