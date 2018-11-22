@@ -118,7 +118,7 @@ choco install whois  "%*"
 
 cls
 echo "Installing database tools "
-choco install sql-server-expresss "%*"
+choco install sql-server-express "%*"
 choco install sql-server-management-studio "%*"
 choco install mongodb  "%*"
 choco install robomongo "%*"
