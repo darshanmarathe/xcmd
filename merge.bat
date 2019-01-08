@@ -1,7 +1,7 @@
 git status 
 pause
 git merge %1
-vi . 
+call vi . 
 echo "now finish merge conflicts if any"
 pause
 git add .
