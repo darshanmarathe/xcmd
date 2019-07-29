@@ -2,13 +2,14 @@
 echo "Welcome to infoxTech Machine Setup Program"
 echo "Installing chocolaty now make sure you are running in admin mode only"
 pause
-rem @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+WHERE choco
+IF %ERRORLEVEL% NEQ 0 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin 
 echo "Installed chocolety"
 cls 
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
 choco list -lo
-choco upgrade all -y
+choco upgrade all -yde 
 pause
 cls
 echo "Installing browsers"
@@ -27,6 +28,7 @@ choco install git "%*"
 choco install git.install "%*"
 choco install gitextensions "%*"
 choco install git-credential-manager-for-windows "%*"
+choco install git-lfs.install "%*"
 choco install meld "%*"
 choco install tortoisesvn "%*"
 choco install sourcetree "%*"
@@ -43,7 +45,7 @@ choco install dotnet4.5 "%*"
 choco install powershell4 "%*"
 choco install ruby "%*"
 choco install python "%*"
-choco install jdk9 "%*"
+choco install jdk8 "%*"
 choco install golang "%*"
 choco install erlang "%*"
 choco install dotnetcore-sdk "%*"
@@ -55,6 +57,8 @@ choco install gtksharp "%*"
 choco install julia "%*"
 choco install android-sdk "%*"
 choco install electron "%*"
+choco install scriptcs "%*"
+choco install silverlight "%*" 
 
 cls
 echo "Installing Light weight editors"
@@ -89,7 +93,6 @@ choco install slack "%*"
 choco install camstudio "%*"
 choco install putty.install "%*"
 choco install gimp "%*"
-choco install autohotkey.install "%*"
 choco install f.lux "%*"
 choco install postman "%*"
 choco install httrack "%*"
@@ -103,23 +106,24 @@ choco install office365business
 choco install anydesk "%*"
 choco install projectlibre "%*" 
 choco install wps-office-free "%*"
-
-
+choco install mobaxterm "%*"
+choco install zoom "%*"
 
 cls 
 echo "installing cool utilities"
 choco install wget "%*"
 choco install curl "%*"
 choco install ffmpeg "%*"
-choco install scriptcs "%*"
 choco install openssl.light "%*" 
 choco install opencv "%*"
 choco install prefix "%*"
 choco install whois  "%*"
+choco install cmder "%*"
+choco install dotpeek "%*"
 
 cls
 echo "Installing database tools "
-choco install sql-server-expresss "%*"
+choco install sql-server-express "%*"
 choco install sql-server-management-studio "%*"
 choco install mongodb  "%*"
 choco install robomongo "%*"
@@ -127,7 +131,7 @@ choco install postgresql "%*"
 choco install redis "%*"
 choco install neo4j-community "%*"
 choco install solr "%*"
-choco install dbmigration "%*"
+
 
 cls
 echo "cloud control"
