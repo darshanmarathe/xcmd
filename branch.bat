@@ -1,4 +1,5 @@
- @echo off                
+
+@echo off                
 echo Current Branch Name
 echo ===================
 IF [%1]==[] (
