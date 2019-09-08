@@ -9,7 +9,7 @@ cls
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
 choco list -lo
-rem ehoco upgrade all -y
+choco upgrade all -y
 pause
 cls
 echo "Installing browsers"
