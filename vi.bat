@@ -1,2 +1,2 @@
 @echo off
-Code .
+Code %1

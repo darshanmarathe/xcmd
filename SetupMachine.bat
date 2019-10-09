@@ -78,6 +78,7 @@ choco install scite "%*"
 cls
 echo "Installing Important Softwares and office utilities"
 choco install autohotkey.install "%*"
+choco install grammarly "%*"
 choco install winmerge"%*"
 choco install 7zip "%*"
 choco install 7zip.install "%*"
