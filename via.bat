@@ -1,3 +1,2 @@
 @echo off
-atom .
-
+atom %1
