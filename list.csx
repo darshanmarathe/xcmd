@@ -8,15 +8,15 @@ using System.Collections.Generic;
 using System.Threading;
 
 
-string CurrentDirectory = Env.ScriptArgs[0];
+    string CurrentDirectory = Env.ScriptArgs[0];
 
-var content = new List<string> ();
-WriteLine("");
+    var content = new List<string> ();
+    WriteLine("");
 
-if(CurrentDirectory.Contains(@"""")){
-    CurrentDirectory =     CurrentDirectory.Replace(@""" """ , "\\");
-
-}
+    WriteLine(CurrentDirectory);
+    if(CurrentDirectory.Contains(@"""")){
+        CurrentDirectory =     CurrentDirectory.Replace(@""" """ , "\\");
+    }
     WriteLine(CurrentDirectory);
     var DirsArr = Directory.GetDirectories(CurrentDirectory);
 
