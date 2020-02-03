@@ -1,1 +1,1 @@
-call %USERPROFILE%\AppData\Local\Programs\Microsoft VS Code Insiders\Code - Insiders.exe %*
+call code-insiders %*
