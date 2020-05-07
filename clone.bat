@@ -1,9 +1,13 @@
-@echo off
-IF [%2]==[] (
-  git clone %1
-) ELSE (
-  git clone %1 %2
-  cd %2  
-)
+echo %1
 
+@ECHO OFF
+SETLOCAL
+set file=%1
+FOR %%i IN ("%file%") DO (
+  SET foldername=%%~ni
+)
+echo %foldername%
+call git clone %1
+cd %foldername% 
+vi .
 
