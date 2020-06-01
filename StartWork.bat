@@ -1,9 +1,8 @@
 @echo off
 echo Put your commands here
-c:
+I:
 cd\
-cd work
-cd opera
-codei Opera.code-workspace
+cd manotr\exprements\manotrUI
+codei .
 
 
