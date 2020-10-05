@@ -8,6 +8,6 @@ FOR %%i IN ("%file%") DO (
 )
 echo %foldername%
 call git clone %1
-cd %foldername% 
+cd %foldername%
 vi .
-
+cd %foldername%

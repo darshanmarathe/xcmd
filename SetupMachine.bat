@@ -20,6 +20,8 @@ choco install chromium "%*"
 choco install maxthon "%*"
 choco install midori-browser "%*"
 choco install vivaldi "%*"
+choco install microsoft-edge  "%*"
+
 
 
 cls 
@@ -44,6 +46,7 @@ choco install javaruntime "%*"
 choco install dotnet4.5 "%*"
 choco install powershell4 "%*"
 choco install ruby "%*"
+choco install python2 "%*" 
 choco install python "%*"
 choco install jdk8 "%*"
 choco install golang "%*"
@@ -62,11 +65,11 @@ choco install silverlight "%*"
 
 cls
 echo "Installing Light weight editors"
-choco install sourcecodepro  "%*"
 choco install notepadplusplus.install "%*"
 choco install atom "%*"
 choco install sublimetext3 "%*"
-choco install visualstudiocode "%*" 
+choco install vscode "%*"
+choco install vscode-insiders "%*"  
 choco install brackets "%*"
 choco install vim "%*"
 choco install emacs "%*"
@@ -100,7 +103,7 @@ choco install sysinternals "%*"
 choco install skype "%*"
 choco install slack "%*"
 choco install microsoft-teams "%*"
-choco install office365business
+choco install office365business "%*"
 choco install libreoffice "%*"
 choco install wps-office-free "%*"
 choco install thunderbird "%*"
@@ -133,7 +136,8 @@ choco install postgresql "%*"
 choco install redis "%*"
 choco install neo4j-community "%*"
 choco install solr "%*"
-
+choco install mysql "%*"
+choco install mysql.workbench "%*" 
 
 cls
 echo "cloud control"
