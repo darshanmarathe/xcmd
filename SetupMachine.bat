@@ -4,6 +4,7 @@ echo "Installing chocolaty now make sure you are running in admin mode only"
 pause
 WHERE choco
 IF %ERRORLEVEL% NEQ 0 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin 
+call refreshenv
 echo "Installed chocolety"
 cls 
 echo "Testing chocolatey"
