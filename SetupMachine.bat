@@ -1,12 +1,12 @@
-@echo off 
+@echo off
 echo "Welcome to infoxTech Machine Setup Program"
 echo "Installing chocolaty now make sure you are running in admin mode only"
 pause
 WHERE choco
-IF %ERRORLEVEL% NEQ 0 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin 
+IF %ERRORLEVEL% NEQ 0 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 call refreshenv
 echo "Installed chocolety"
-cls 
+cls
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
 choco list -lo
@@ -16,16 +16,16 @@ cls
 echo "Installing browsers"
 choco install googlechrome "%*"
 choco install firefox "%*"
-choco install opera "%*" 
+choco install opera "%*"
 choco install chromium "%*"
-choco install maxthon "%*"
 choco install midori-browser "%*"
 choco install vivaldi "%*"
 choco install microsoft-edge  "%*"
+choco install brave  "%*"
 
 
 
-cls 
+cls
 echo "Installing source control tools"
 choco install git "%*"
 choco install git.install "%*"
@@ -38,7 +38,7 @@ choco install sourcetree "%*"
 choco install hg "%*"
 choco install gitkraken "%*"
 
-cls 
+cls
 
 echo "Installing Programing frameworks and languages"
 choco install nodejs "%*"
@@ -47,7 +47,7 @@ choco install javaruntime "%*"
 choco install dotnet4.5 "%*"
 choco install powershell4 "%*"
 choco install ruby "%*"
-choco install python2 "%*" 
+choco install python2 "%*"
 choco install python "%*"
 choco install jdk8 "%*"
 choco install golang "%*"
@@ -62,7 +62,7 @@ choco install julia "%*"
 choco install android-sdk "%*"
 choco install electron "%*"
 choco install scriptcs "%*"
-choco install silverlight "%*" 
+choco install silverlight "%*"
 
 cls
 echo "Installing Light weight editors"
@@ -70,12 +70,11 @@ choco install notepadplusplus.install "%*"
 choco install atom "%*"
 choco install sublimetext3 "%*"
 choco install vscode "%*"
-choco install vscode-insiders "%*"  
+choco install vscode-insiders "%*"
 choco install brackets "%*"
 choco install vim "%*"
 choco install emacs "%*"
-choco install micro
-choco install markdownpad2 "%*"
+choco install micro "%*"
 choco install scite "%*"
 
 
@@ -94,10 +93,9 @@ choco install camstudio "%*"
 choco install putty.install "%*"
 choco install f.lux "%*"
 choco install postman "%*"
-choco install httrack "%*"
 choco install httrack.app "%*"
 choco install dropbox "%*"
-choco install megasync "%*"  
+choco install megasync "%*"
 choco install pencil "%*"
 choco install evernote  "%*"
 choco install sysinternals "%*"
@@ -108,24 +106,22 @@ choco install office365business "%*"
 choco install libreoffice "%*"
 choco install wps-office-free "%*"
 choco install thunderbird "%*"
-choco install projectlibre "%*" 
+choco install projectlibre "%*"
 choco install gimp "%*"
 choco install mobaxterm "%*"
 choco install teamviewer "%*"
 choco install anydesk "%*"
 choco install zoom "%*"
 
-cls 
+cls
 echo "installing cool utilities"
 choco install wget "%*"
 choco install curl "%*"
 choco install ffmpeg "%*"
 choco install whois  "%*"
 choco install cmder "%*"
-choco install openssl.light "%*" 
+choco install openssl.light "%*"
 choco install opencv "%*"
-choco install prefix "%*"
-choco install dotpeek "%*"
 
 cls
 echo "Installing database tools "
@@ -138,7 +134,7 @@ choco install redis "%*"
 choco install neo4j-community "%*"
 choco install solr "%*"
 choco install mysql "%*"
-choco install mysql.workbench "%*" 
+choco install mysql.workbench "%*"
 
 cls
 echo "cloud control"
@@ -149,7 +145,7 @@ choco install carina "%*"
 choco install cloudfoundry-cli "%*"
 
 
-cls 
+cls
 echo "Installing IDEs"
 choco install monodevelop "%*"
 choco install sharpdevelop "%*"
@@ -161,6 +157,7 @@ choco install liteide "%*"
 choco install bluej "%*"
 choco install pycharm-community "%*"
 choco install visualstudio2017community  "%*"
+choco install visualstudio2019community  "%*"
 choco install r.studio "%*"
 choco install kdevelop "%*"
 cls
@@ -183,4 +180,3 @@ pause
 cls
 echo "Happy coding and best luck."
 pause
-
