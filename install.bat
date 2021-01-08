@@ -1,1 +1,1 @@
-setx path "%path%%cd%;"
+setx path "%path%;%cd%;"
