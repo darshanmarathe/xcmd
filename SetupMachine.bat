@@ -42,6 +42,7 @@ cls
 
 echo "Installing Programing frameworks and languages"
 choco install nodejs "%*"
+choco install deno "%*"
 choco install nodejs.install "%*"
 choco install javaruntime "%*"
 choco install dotnet4.5 "%*"
