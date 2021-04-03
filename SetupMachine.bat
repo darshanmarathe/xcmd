@@ -13,8 +13,17 @@ choco list -lo
 choco upgrade all -y
 pause
 cls
-echo "Installing browsers"
+echo "Installing essentials"
 choco install googlechrome "%*"
+choco install git "%*"
+choco install git.install "%*"
+choco install javaruntime "%*"
+choco install dotnet4.5 "%*"
+choco install scriptcs "%*"
+choco install notepadplusplus.install "%*"
+
+
+echo "Installing browsers"
 choco install firefox "%*"
 choco install opera "%*"
 choco install chromium "%*"
@@ -27,8 +36,6 @@ choco install brave  "%*"
 
 cls
 echo "Installing source control tools"
-choco install git "%*"
-choco install git.install "%*"
 choco install gitextensions "%*"
 choco install git-credential-manager-for-windows "%*"
 choco install git-lfs.install "%*"
@@ -44,8 +51,6 @@ echo "Installing Programing frameworks and languages"
 choco install nodejs "%*"
 choco install deno "%*"
 choco install nodejs.install "%*"
-choco install javaruntime "%*"
-choco install dotnet4.5 "%*"
 choco install powershell4 "%*"
 choco install ruby "%*"
 choco install python2 "%*"
@@ -63,12 +68,10 @@ choco install gtksharp "%*"
 choco install julia "%*"
 choco install android-sdk "%*"
 choco install electron "%*"
-choco install scriptcs "%*"
 choco install silverlight "%*"
 
 cls
 echo "Installing Light weight editors"
-choco install notepadplusplus.install "%*"
 choco install atom "%*"
 choco install sublimetext3 "%*"
 choco install vscode "%*"
