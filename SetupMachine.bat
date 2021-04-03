@@ -21,9 +21,10 @@ choco install nodejs "%*"
 choco install javaruntime "%*"
 choco install dotnet4.5 "%*"
 choco install scriptcs "%*"
-fchoco install notepadplusplus.install "%*"
+choco install notepadplusplus.install "%*"
 choco install googlechrome "%*"
-
+WHERE node
+IF %ERRORLEVEL% == 0 call nodeglobals.bat
 
 echo "Installing browsers"
 choco install firefox "%*"
