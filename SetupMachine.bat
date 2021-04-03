@@ -14,13 +14,15 @@ choco upgrade all -y
 pause
 cls
 echo "Installing essentials"
-choco install googlechrome "%*"
 choco install git "%*"
 choco install git.install "%*"
+choco install cmder "%*"
+choco install nodejs "%*"
 choco install javaruntime "%*"
 choco install dotnet4.5 "%*"
 choco install scriptcs "%*"
-choco install notepadplusplus.install "%*"
+fchoco install notepadplusplus.install "%*"
+choco install googlechrome "%*"
 
 
 echo "Installing browsers"
@@ -48,7 +50,6 @@ choco install gitkraken "%*"
 cls
 
 echo "Installing Programing frameworks and languages"
-choco install nodejs "%*"
 choco install deno "%*"
 choco install nodejs.install "%*"
 choco install powershell4 "%*"
@@ -119,14 +120,13 @@ choco install anydesk "%*"
 choco install zoom "%*"
 choco install paint.net  "%*"
 choco install microsoft-windows-terminal "%*"
-
+choco install rufus "%*"
 cls
 echo "installing cool utilities"
 choco install wget "%*"
 choco install curl "%*"
 choco install ffmpeg "%*"
 choco install whois  "%*"
-choco install cmder "%*"
 choco install openssl.light "%*"
 choco install opencv "%*"
 
