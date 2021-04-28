@@ -7,7 +7,7 @@ FOR %%i IN ("%file%") DO (
   SET foldername=%%~ni
 )
 echo %foldername%
-call git clone %1
-cd %foldername%
+call git clone %*
+call cd %foldername%
 vi .
-cd %foldername%
+call cd %foldername%
