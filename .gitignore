@@ -7,3 +7,5 @@ ConEmu/
 ConEmu64.map
 plugins/
 obj/
+.idea/
+.vs/
