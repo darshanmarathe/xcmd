@@ -1,4 +1,4 @@
-@echo off
+i@echo off
 echo "Welcome to infoxTech Machine Setup Program"
 echo "Installing chocolaty now make sure you are running in admin mode only"
 pause
@@ -10,12 +10,13 @@ cls
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
 choco list -lo
-choco upgrade all -y
+choco upgrade all
 pause
 cls
 echo "Installing essentials"
 choco install git "%*"
 choco install git.install "%*"
+choco install lite-xl "%*"
 choco install cmder "%*"
 choco install nodejs "%*"
 choco install javaruntime "%*"
@@ -71,6 +72,8 @@ choco install julia "%*"
 choco install android-sdk "%*"
 choco install electron "%*"
 choco install silverlight "%*"
+@echo "GCC Compilier...."
+choco install mingw "%*"
 
 cls
 echo "Installing Light weight editors"
