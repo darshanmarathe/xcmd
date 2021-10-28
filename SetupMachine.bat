@@ -1,4 +1,4 @@
-i@echo off
+@echo off
 echo "Welcome to infoxTech Machine Setup Program"
 echo "Installing chocolaty now make sure you are running in admin mode only"
 pause
@@ -133,6 +133,7 @@ choco install ffmpeg "%*"
 choco install whois  "%*"
 choco install openssl.light "%*"
 choco install opencv "%*"
+choco install ngrok "%*"
 
 cls
 echo "Installing database tools "

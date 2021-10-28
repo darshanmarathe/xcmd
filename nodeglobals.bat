@@ -1,9 +1,9 @@
-npm install -g nodemon 
-npm install -g http-server
-npm install -g serverless
-npm install -g @angular/cli 
-npm install -g create-react-app
-npm install -g pkg
-npm install -g node-gyp
-npm install -g npm-check-updates
-npm install -g pm2
+call npm install -g nodemon 
+call npm install -g http-server
+call npm install -g serverless
+call npm install -g @angular/cli 
+call npm install -g create-react-app
+call npm install -g pkg
+call npm install -g node-gyp
+call npm install -g npm-check-updates
+call npm install -g pm2
