@@ -71,7 +71,6 @@ choco install gtksharp "%*"
 choco install julia "%*"
 choco install android-sdk "%*"
 choco install electron "%*"
-choco install silverlight "%*"
 @echo "GCC Compilier...."
 choco install mingw "%*"
 
