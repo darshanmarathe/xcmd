@@ -8,4 +8,5 @@ FOR %%i IN ("%file%") DO (
 echo %foldername%
 call git clone %*
 cd  %foldername%
-vi .
+call vi .
+if exist package.json call npm install
