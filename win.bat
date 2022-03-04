@@ -1,2 +1,8 @@
 @echo off
-start .
+IF [%1]==[] (
+ start .
+) ELSE (
+ start %1
+)
+
+
