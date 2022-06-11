@@ -4,18 +4,18 @@ const os = require("os");
 
 var args = [...process.argv]
 
-if (args.length >= 3 && args[2].indexOf('.') > -1 ) {
+if (args.length >= 3 && args[2].indexOf('.') > -1) {
 
     args.shift()
     args.shift();
-    
+
     const isCopy = args.includes('-c')
     const isLine = args.includes('-l')
 
-    let lineNumber =1
-    let lines  = ""
-    
-    const path = args[0].replace(/\\/g , "\\\\");
+    let lineNumber = 1
+    let lines = ""
+
+    const path = args[0].replace(/\\/g, "\\\\");
     const rl = readline.createInterface({
         input: fs.createReadStream(path, "utf8"),
         output: process.stdout,
@@ -23,27 +23,28 @@ if (args.length >= 3 && args[2].indexOf('.') > -1 ) {
     });
     rl.on('line', (line) => {
 
-        if(isLine){
+        if (isLine) {
             console.log(`${lineNumber}: ${line}`)
             lineNumber++;
-        }else{
+        } else {
 
             console.log(line);
         }
-        if(isCopy){
-     
-            lines += line + '\r\n';
-        
- 
+        if (isCopy) {
+            const temp = line + os.EOL
+            lines += temp;
+
+
         }
     });
-    rl.on('close' , () => {
-       if(isCopy){
-        const util = require('util');
-        require('child_process').spawn('clip').stdin.end(util.inspect(lines));
-       }
+    rl.on('close', () => {
+        if (isCopy) {
+
+            require('child_process').spawn('clip').stdin.end(lines);
+            console.log("copied...");
+        }
     })
-}else{
+} else {
     console.error("no path found ....    ")
     console.log("try cat <filename>")
     console.log("-c for copy file conent")
