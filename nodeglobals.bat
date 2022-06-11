@@ -1,3 +1,4 @@
+call npm install -g rimraf
 call npm install -g nodemon 
 call npm install -g http-server
 call npm install -g serverless
