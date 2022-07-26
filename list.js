@@ -1,8 +1,6 @@
 var path = require('path');
 var fs = require('fs');
 //joining path of directory 
-
-console.log(process.argv);
 const _path = process.argv[2];
 
 const _isList = ((process.argv[3] || "") === "-l")
