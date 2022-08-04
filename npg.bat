@@ -1,1 +1,1 @@
-npm install -g %1
+npm install -g %*
