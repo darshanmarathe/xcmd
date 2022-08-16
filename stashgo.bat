@@ -1,3 +1,3 @@
 git stash 
-git checkout %1
+git checkout %*
 git stash apply
