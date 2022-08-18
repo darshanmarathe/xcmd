@@ -1,0 +1,9 @@
+cat
+ls 
+ll
+mcd
+pwd
+touch
+zip
+unzip
+up

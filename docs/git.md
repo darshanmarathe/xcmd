@@ -1,0 +1,17 @@
+branch 
+brastat
+checkin
+clone
+commit
+delBranch
+diff
+log
+merge
+nBranch
+pull
+push
+remotes
+reseth
+stashgo
+status
+swbranch
