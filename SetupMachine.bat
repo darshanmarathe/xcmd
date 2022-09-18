@@ -54,6 +54,7 @@ cls
 echo "Installing Programing frameworks and languages"
 choco install deno "%*"
 choco install nodejs.install "%*"
+choco install nvm "%*"
 choco install powershell4 "%*"
 choco install ruby "%*"
 choco install python2 "%*"
@@ -168,8 +169,10 @@ choco install netbeans "%*"
 choco install liteide "%*"
 choco install bluej "%*"
 choco install pycharm-community "%*"
+echo NOTE : VS 2017 2019 2022 available 
 choco install visualstudio2017community  "%*"
 choco install visualstudio2019community  "%*"
+choco install visualstudio2022community  "%*"
 choco install r.studio "%*"
 choco install kdevelop "%*"
 cls
