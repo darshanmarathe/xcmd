@@ -79,7 +79,7 @@ choco install mingw "%*"
 cls
 echo "Installing Light weight editors"
 choco install atom "%*"
-choco install sublimetext3 "%*"
+choco install sublimetext4 "%*"
 choco install vscode "%*"
 choco install vscode-insiders "%*"
 choco install brackets "%*"
