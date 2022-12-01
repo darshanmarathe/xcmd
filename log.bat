@@ -1,8 +1,8 @@
  @echo off
  IF [%1]==[] (
- git log -10
+ git log --graph -10
 ) ELSE (
 
- git log -%1
+ git log --graph -%1
 
 )
