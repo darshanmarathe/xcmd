@@ -46,3 +46,4 @@ File and Folders
 Utilities 
 Node and npm
 Docker 
+Others
