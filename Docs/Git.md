@@ -110,10 +110,47 @@ short to git log -n shows last -n entries
 log <number>
 ```
 ### show
-
+short to git show 
+```batch
+show <commitHash>
+```
 
 ### merge
+
+- Shows your current status
+- performs the merge with git merge
+- Open VS code and then you can resolve any merge conflicts manually (if any)
+- commits and pushes the code  
+```batch
+merge <branch name>
+```
+
 ### remotes
+Shows all remotes for the current git repository
+
 ### reseth
+short to git reset --hard
+
 ### stashgo
+- git stash
+- git checkout to branch 
+- Shows your current status
+- git stash apply
+
+```batch
+stashgo <branch name>
+```
+
+```batch
+stashgo -b <new branch name>
+```
+
 ### swbranch
+- git fetch
+- git checkout
+- git pull
+- Display current branch name  
+
+```batch
+swbranch  <branch name>
+```
