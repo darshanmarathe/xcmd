@@ -156,7 +156,7 @@ swbranch  <branch name>
 ```
 
 
-### swbranch
+### rmlastcommit
 - Removes the last commit for local and remote branch
 
 ```batch
