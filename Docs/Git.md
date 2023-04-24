@@ -17,6 +17,7 @@
     - [reseth](#reseth)
     - [stashgo](#stashgo)
     - [swbranch](#swbranch)
+    - [rmlastcommit](#rmlastcommit)
 
 
 ### clone 
