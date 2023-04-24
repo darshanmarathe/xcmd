@@ -154,3 +154,11 @@ stashgo -b <new branch name>
 ```batch
 swbranch  <branch name>
 ```
+
+
+### swbranch
+- Removes the last commit for local and remote branch
+
+```batch
+rmlastcommit 
+```
