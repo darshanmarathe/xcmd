@@ -1,0 +1,1 @@
+@powershell docker ps -a

@@ -1,1 +1,1 @@
-docker stop $(docker ps -a -q)
+@powershell docker stop $(docker ps -a -q)

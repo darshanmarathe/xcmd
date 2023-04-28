@@ -128,9 +128,15 @@ merge <branch name>
 
 ### remotes
 Shows all remotes for the current git repository
+```batch
+remotes
+```
 
 ### reseth
 short to git reset --hard
+```batch
+reseth
+```
 
 ### stashgo
 - git stash
@@ -141,7 +147,7 @@ short to git reset --hard
 ```batch
 stashgo <branch name>
 ```
-
+For new branch
 ```batch
 stashgo -b <new branch name>
 ```
