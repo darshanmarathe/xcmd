@@ -7,10 +7,16 @@ xcmd makes your good old command line super command line if you like bash it wil
   - Makes developers love command line again 
   - Magic
 
-# New Features!
+# Documentation
 
-  - cat can copy the content of file
-  - stashgo (stash command on steroids)
+ - [Git](Docs/Git.md)
+ - [Docker](Docs/Docker.md)
+ - File and Folders 
+ - Utilities 
+ - Node and npm
+ - Docker 
+ - Others
+
 
 
 ### Tech
@@ -41,9 +47,3 @@ MIT
 
 # Commands (Making you lazy...)
 
-[Git ](Docs/Git.md)
-File and Folders 
-Utilities 
-Node and npm
-Docker 
-Others
