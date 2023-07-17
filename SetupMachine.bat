@@ -9,7 +9,7 @@ echo "Installed chocolety"
 cls
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
-choco list -lo
+choco list 
 choco upgrade all
 pause
 cls
@@ -18,12 +18,13 @@ choco install git "%*"
 choco install git.install "%*"
 choco install lite-xl "%*"
 choco install cmder "%*"
-choco install nodejs "%*"
+choco install nvm"%*"
 choco install javaruntime "%*"
 choco install dotnet4.5 "%*"
 choco install scriptcs "%*"
 choco install notepadplusplus.install "%*"
 choco install googlechrome "%*"
+pause
 WHERE node
 IF %ERRORLEVEL% == 0 call nodeglobals.bat
 
@@ -56,12 +57,10 @@ choco install deno "%*"
 choco install microsoft-openjdk11 "%*"
 choco install nodejs.install "%*"
 choco install nvm "%*"
-choco install powershell4 "%*"
 choco install ruby "%*"
 choco install python2 "%*"
 choco install python "%*"
 choco install jdk8 "%*"
-choco install jdk11 "%*"
 choco install golang "%*"
 choco install erlang "%*"
 choco install dotnetcore-sdk "%*"
@@ -92,6 +91,7 @@ choco install scite "%*"
 cls
 echo "Installing Important Softwares and office utilities"
 choco install autohotkey.install "%*"
+choco install scrcpy "%*"
 choco install grammarly "%*"
 choco install winmerge"%*"
 choco install 7zip "%*"
@@ -175,7 +175,6 @@ choco install visualstudio2017community  "%*"
 choco install visualstudio2019community  "%*"
 choco install visualstudio2022community  "%*"
 choco install r.studio "%*"
-choco install kdevelop "%*"
 cls
 
 echo "Other Server products"
