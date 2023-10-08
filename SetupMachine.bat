@@ -189,7 +189,7 @@ choco install avgantivirusfree "%*"
 cls
 
 echo "listing all choco packages"
-choco list -lo
+choco list
 pause
 
 
