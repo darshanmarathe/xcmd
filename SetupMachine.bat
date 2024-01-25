@@ -20,10 +20,10 @@ choco install lite-xl "%*"
 choco install cmder "%*"
 choco install nvm"%*"
 call refreshenv
-call nvm install latest
+call nvm install lts
+call nvm use lts
 choco install javaruntime "%*"
 choco install netfx-4.8 "%*"
-choco install dotnet-8.0-sdk "%*"
 choco install scriptcs "%*"
 choco install notepadplusplus.install "%*"
 choco install googlechrome "%*"
@@ -68,6 +68,7 @@ choco install jdk8 "%*"
 choco install golang "%*"
 choco install erlang "%*"
 choco install dotnetcore-sdk "%*"
+choco install dotnet-8.0-sdk "%*"
 choco install elixir "%*"
 choco install mono "%*"
 choco install rust "%*"

@@ -1,6 +1,6 @@
 del ".UpdateMachine.bat.un~"
 del "UpdateMachine.bat~"
-choco list -lo
+choco list 
 pause
 choco upgrade all
 pause
