@@ -18,6 +18,7 @@
     - [stashgo](#stashgo)
     - [swbranch](#swbranch)
     - [rmlastcommit](#rmlastcommit)
+    - [gitsage](#gitsafe)
 
 
 ### clone 
@@ -168,4 +169,11 @@ swbranch  <branch name>
 
 ```batch
 rmlastcommit 
+```
+
+### gitsafe
+- Add current directory to global git safe.directory  
+
+```batch
+gitsafe 
 ```
