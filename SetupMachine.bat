@@ -10,7 +10,7 @@ cls
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
 choco list 
-choco upgrade all
+choco upgrade all %*
 pause
 cls
 echo "Installing essentials"
@@ -18,7 +18,7 @@ choco install git "%*"
 choco install git.install "%*"
 choco install lite-xl "%*"
 choco install cmder "%*"
-choco install nvm"%*"
+choco install nvm "%*"
 call refreshenv
 call nvm install lts
 call nvm use lts
