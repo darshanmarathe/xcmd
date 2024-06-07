@@ -133,6 +133,7 @@ choco install zoom "%*"
 choco install paint.net  "%*"
 choco install microsoft-windows-terminal "%*"
 choco install rufus "%*"
+choco install audacity "%*"
 cls
 echo "installing cool utilities"
 choco install wget "%*"
