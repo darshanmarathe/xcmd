@@ -57,6 +57,7 @@ cls
 
 echo "Installing Programing frameworks and languages"
 choco install deno "%*"
+choco install bun "%*"
 choco install microsoft-openjdk11 "%*"
 choco install nodejs.install "%*"
 choco install nvm "%*"

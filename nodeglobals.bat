@@ -1,10 +1,38 @@
-call npm install -g rimraf
-call npm install -g nodemon 
-call npm install -g http-server
-call npm install -g serverless
-call npm install -g @angular/cli 
-call npm install -g create-react-app
-call npm install -g pkg
-call npm install -g node-gyp
-call npm install -g npm-check-updates
-call npm install -g pm2
+@echo off
+cls
+call :install  rimraf
+call :install  nodemon 
+call :install  http-server
+call :install  serverless
+call :install  @angular/cli 
+call :install  create-react-app
+call :install  pkg
+call :install  node-gyp
+call :install  npm-check-updates
+call :install  pm2
+
+:: Function definition
+:install
+CHOICE /C YN /M "Do you want to install (%~1) globally(Y/N)?"
+IF ERRORLEVEL 2 GOTO NO
+IF ERRORLEVEL 1 GOTO YES
+EXIT /B 0
+
+:YES
+echo You chose Yes.
+:: Add your commands here
+call npm install -g %~1
+GOTO END
+
+:NO
+echo You chose No.
+:: Add your commands here
+GOTO END
+
+:END
+EXIT /B 0
+
+
+echo Script finished.
+endlocal
+EXIT /B 0
