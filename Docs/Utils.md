@@ -12,6 +12,7 @@
     - [zip](#zip)
     - [unzip](#unzip)
     - [tsw](#tsw)
+    - [setupmachine](#setupmachine)
 
 
 ### AddToPath 
@@ -100,4 +101,11 @@ start type script in watch mode
  repository
 ```batch
 tsw app.ts
+```
+
+
+### setupmachine
+Sets up machine for developer
+```batch
+setupmachine
 ```
