@@ -1,2 +1,3 @@
-@echo off 
-ls -l 
+@echo off
+ls -l
+set BACKDIR=%cd%

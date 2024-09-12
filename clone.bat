@@ -8,6 +8,7 @@ FOR %%i IN ("%file%") DO (
 echo %foldername%
 call git clone %*
 cd  %foldername%
+set BACKDIR=%cd%
 call vi .
 if exist package.json call npm install
 if exist go.mod call go build .

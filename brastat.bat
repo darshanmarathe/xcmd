@@ -1,3 +1,4 @@
-call branch 
-pause 
+call branch
+pause
 call status
+set BACKDIR=%cd%

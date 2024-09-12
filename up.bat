@@ -1,7 +1,7 @@
 @echo off
-
+set BACKDIR=%cd%
 IF [%1]==[] (
-  cd .. 
+  cd ..
   EXIT /B
 )
 
@@ -9,6 +9,6 @@ IF %1%==\ (
  cd \
 ) ELSE (
   for /l %%x in (1, 1, %1) do (
-  cd .. 
+  cd ..
   )
 )

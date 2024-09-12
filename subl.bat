@@ -4,3 +4,4 @@ call "C:\Program Files\Sublime Text\subl.exe" %cd%
 ) ELSE (
 call "C:\Program Files\Sublime Text\subl.exe" %cd%\%1
 )
+set BACKDIR=%cd%

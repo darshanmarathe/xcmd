@@ -1,5 +1,5 @@
 
-@echo off                
+@echo off
 echo Running IIS with ngRok
 WHERE ngrok
 IF %ERRORLEVEL% NEQ 0 echo "install ngRok and try again" && exit
@@ -9,4 +9,4 @@ IF [%1]==[] (
 ) ELSE (
  ngrok http -host-header=localhost %1
 )
-
+set BACKDIR=%cd%

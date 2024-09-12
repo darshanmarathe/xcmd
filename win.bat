@@ -4,5 +4,4 @@ IF [%1]==[] (
 ) ELSE (
  start %1
 )
-
-
+set BACKDIR=%cd%

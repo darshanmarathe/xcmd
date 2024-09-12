@@ -1,5 +1,5 @@
 
-@echo off                
+@echo off
 echo Current Branch Name
 echo ===================
 IF [%1]==[] (
@@ -7,3 +7,4 @@ IF [%1]==[] (
 ) ELSE (
 git branch -%1
 )
+set BACKDIR=%cd%
