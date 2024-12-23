@@ -1,3 +1,4 @@
+@echo off
 call branch
 pause
 call status

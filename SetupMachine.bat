@@ -9,8 +9,8 @@ echo "Installed chocolety"
 cls
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
-choco list 
-choco upgrade all %*
+choco list
+choco upgrade all -v
 pause
 cls
 echo "Installing essentials"
@@ -64,7 +64,7 @@ choco install nvm "%*"
 choco install ruby "%*"
 choco install python2 "%*"
 choco install python "%*"
-choco install pyenv-win "%*" 
+choco install pyenv-win "%*"
 choco install jdk8 "%*"
 choco install golang "%*"
 choco install erlang "%*"
@@ -112,6 +112,7 @@ choco install camstudio "%*"
 choco install putty.install "%*"
 choco install f.lux "%*"
 choco install postman "%*"
+choco install insomnia-rest-api-client "%*"
 choco install httrack.app "%*"
 choco install dropbox "%*"
 choco install megasync "%*"
@@ -176,7 +177,7 @@ choco install sharpdevelop "%*"
 echo "Installing IDEs From JetBrains"
 choco install intellijidea-community "%*"
 choco install pycharm-community "%*"
-choco install jetbrains-rider "%*" 
+choco install jetbrains-rider "%*"
 choco install webstorm "%*"
 choco install androidstudio  "%*"
 choco install eclipse  "%*"

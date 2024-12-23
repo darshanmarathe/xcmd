@@ -1,4 +1,3 @@
-
 @echo off
 echo Running IIS with ngRok
 WHERE ngrok

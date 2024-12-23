@@ -1,2 +1,3 @@
-md %1 & cd %1
+@echo off
+\md %1 & cd %1
 set BACKDIR=%cd%
