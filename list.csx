@@ -10,8 +10,11 @@ using System.Threading;
 
     string CurrentDirectory = Env.ScriptArgs[0];
 
+
     var content = new List<string> ();
-    WriteLine("");
+    WriteLine("Booting up.....");
+
+   // CurrentDirectory = ClearParam(CurrentDirectory);
 
     WriteLine(CurrentDirectory);
     if(CurrentDirectory.Contains(@"""")){
@@ -26,7 +29,7 @@ using System.Threading;
     WriteLine(" " + filearr.Count().ToString() + " files in " + CurrentDirectory);
     WriteLine("");
 
-    if (IsSwitchAvaible("-l"))
+    if (HasParam("-l"))
     {
 
         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -45,7 +48,7 @@ using System.Threading;
     }
 
 void Copy(){
-    if(IsSwitchAvaible("-c"))
+    if(HasParam("-c"))
     {
         var _content = string.Join("\n" , content);
         var thread = new Thread(() => {
@@ -108,7 +111,7 @@ void WriteLine(string message){
 }
 
 
-bool IsSwitchAvaible(string swi){
+bool HasParam(string swi){
     foreach (var item in Env.ScriptArgs)
     {
         if(item == swi.ToLower() || item == swi.ToUpper())
@@ -116,3 +119,8 @@ bool IsSwitchAvaible(string swi){
     }
     return false;
 }
+
+// string ClearParam(string Param) {
+//     var params = Param.Split(' ');
+//     return params[0].Replace("\"" ,"");
+// }
