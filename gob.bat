@@ -1,7 +1,7 @@
 
 @echo off         
 IF [%1]==[] (
- npm run start
+ go build . %*
 )ELSE (
- npm run %*
+ go build %*
 )
