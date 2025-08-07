@@ -2,19 +2,15 @@ import sys
 
 import subprocess
 
+
 def copy_to_clipboard(text):
-    cmd = f'echo {text.strip()}|clip'
-    subprocess.check_call(cmd, shell=True)
-
-
-def copy_to_clipboard_2(text):
     # Create a temporary process to handle the text with formatting
     process = subprocess.Popen('clip', stdin=subprocess.PIPE, shell=True)
     # Encode string to bytes and preserve all whitespace
     process.communicate(input=text.encode())
 
 
-filePath = sys.argv[1] 
+filePath = sys.argv[1]
 
 print(f"Reading file: {filePath} with python")
 
@@ -35,4 +31,4 @@ with open(filePath , 'r') as file:
             index+=1
             print(f"{index}: {line.strip()}")
 if is_copy:
-    copy_to_clipboard_2(str)
+    copy_to_clipboard(str)
