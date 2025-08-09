@@ -1,9 +1,11 @@
 @echo off
 
+WHERE python
+IF %ERRORLEVEL% == 0 python %~dp0cat.py %cd%\%* && EXIT /B 2
+
+
 WHERE node
 IF %ERRORLEVEL% == 0 node %~dp0cat.js %cd%\%* && EXIT /B 2
-
-
 
 
 WHERE scriptcs
