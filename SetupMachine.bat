@@ -135,6 +135,7 @@ choco install webex "%*"
 choco install zoom "%*"
 choco install paint.net  "%*"
 choco install microsoft-windows-terminal "%*"
+choco install warp-terminal "%*"
 choco install rufus "%*"
 choco install audacity "%*"
 cls

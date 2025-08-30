@@ -10,7 +10,11 @@ call :install  pkg
 call :install  node-gyp
 call :install  npm-check-updates
 call :install  pm2
-
+pause
+echo installing the smart AI cli(s)
+call :install  @qwen-code/qwen-code@latest
+call :install  @google/gemini-cli
+call :install  @anthropic-ai/claude-code
 :: Function definition
 :install
 CHOICE /C YN /M "Do you want to install (%~1) globally(Y/N)?"
