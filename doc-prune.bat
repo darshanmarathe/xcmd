@@ -1,1 +1,1 @@
-y@powershell  docker system prune
+@powershell  docker system prune
