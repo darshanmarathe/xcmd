@@ -190,6 +190,7 @@ echo NOTE : VS 2017 2019 2022 available
 choco install visualstudio2017community  "%*"
 choco install visualstudio2019community  "%*"
 choco install visualstudio2022community  "%*"
+choco install visualstudio2026community  "%*"
 choco install r.studio "%*"
 cls
 
