@@ -108,7 +108,7 @@ cls
 echo "Installing Important Softwares and office utilities"
 choco install autohotkey.install "%*"
 choco install scrcpy "%*"
-choco install grammarly "%*"
+choco install grammarly --ignore-checksums "%*"
 choco install winmerge"%*"
 choco install 7zip "%*"
 choco install 7zip.install "%*"
