@@ -215,6 +215,10 @@ choco install nginx "%*"
 choco install apache-httpd "%*"
 choco install docker-desktop "%*"
 
+echo "install AI tools"
+choco install ollama "%*"
+choco install lmstudio "%*"
+cls
 echo "Installing Antivirus"
 choco install avgantivirusfree "%*"
 cls
