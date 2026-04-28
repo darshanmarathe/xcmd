@@ -12,11 +12,14 @@ call :install  npm-check-updates
 call :install  pm2
 pause
 echo installing the smart AI cli(s)
+call :install  opencode-ai
 call :install  @qwen-code/qwen-code@latest
 call :install  @openai/codex
 call :install  @anthropic-ai/claude-code
 call :install  @github/copilot
 call :install  @google/gemini-cli
+call :install  @cline/cli
+call :install  tabnine
 
 :: Function definition
 :install
