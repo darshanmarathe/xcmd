@@ -1,2 +1,1 @@
-git reset --hard HEAD^
-git push origin -f
+git reset --hard HEAD^ & git push origin -f
