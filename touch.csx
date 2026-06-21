@@ -3,9 +3,9 @@ using System.Linq;
 
 List<string> currentfolder = new List<string>();
 
-var workingfolder = Env.ScriptArgs[Env.ScriptArgs.Count -1];
+var workingfolder = Environment.CurrentDirectory;
 
-var  ArgsArray = Env.ScriptArgs.Take(Env.ScriptArgs.Count() - 1).ToArray();
+var  ArgsArray = Env.ScriptArgs.ToArray();
 
 
 foreach (var item in ArgsArray)

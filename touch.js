@@ -6,7 +6,7 @@ const thingsToCreate  = process.argv;
 thingsToCreate.shift()
 thingsToCreate.shift()
 
-var directoryPath = thingsToCreate.pop();
+var directoryPath = process.cwd();
 
 
 

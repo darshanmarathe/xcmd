@@ -2,11 +2,7 @@ import sys
 import os
 
 args = sys.argv[1:]
-
-# get the last argument
-currentPath = sys.argv[-1]
-
-args.pop()
+currentPath = os.getcwd()
 
 
 def createFile(path):

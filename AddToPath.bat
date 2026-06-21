@@ -1,2 +1,2 @@
-setx path "%path%;%cd%;"
-set BACKDIR=%cd%
+@echo off
+setx path "%path%;%cd%"
