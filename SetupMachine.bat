@@ -19,6 +19,7 @@ choco install git.install "%*"
 choco install lite-xl "%*"
 choco install cmder "%*"
 choco install nvm "%*"
+call powershell -ExecutionPolicy Bypass -c "irm https://herdr.dev/install.ps1 | iex"
 call refreshenv
 call nvm install lts
 call nvm use lts

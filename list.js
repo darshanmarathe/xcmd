@@ -15,7 +15,7 @@ let _isList = (() => {
     
 
 
-var directoryPath = _path;
+var directoryPath = path.resolve(_path);
 console.log(directoryPath);
 console.log("");
 //passsing directoryPath and callback function

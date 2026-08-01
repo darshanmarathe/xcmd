@@ -1,9 +1,9 @@
+import os
 import subprocess
 import sys
 
 
-folderPath = sys.argv[1]
-args = sys.argv[1:]
+folderPath = os.path.abspath(sys.argv[1])
 
 def copy_to_clipboard(text):
     # Create a temporary process to handle the text with formatting
@@ -12,6 +12,6 @@ def copy_to_clipboard(text):
     process.communicate(input=text.encode())
 
 
-print(args[0])
+print(folderPath)
 
-copy_to_clipboard(args[0])
+copy_to_clipboard(folderPath)

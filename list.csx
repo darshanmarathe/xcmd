@@ -22,6 +22,7 @@ if (CurrentDirectory.Contains(@""""))
 {
     CurrentDirectory = CurrentDirectory.Replace(@""" """, "\\");
 }
+CurrentDirectory = Path.GetFullPath(CurrentDirectory);
 WriteLine(CurrentDirectory);
 var DirsArr = Directory.GetDirectories(CurrentDirectory);
 

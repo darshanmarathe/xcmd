@@ -5,7 +5,7 @@ from datetime import datetime
 green = '\033[92m'  # ANSI escape code for green
 reset = '\033[0m'  # ANSI escape code to reset color
 
-folderPath = sys.argv[1]
+folderPath = os.path.abspath(sys.argv[1])
 args = sys.argv[1:]
 
 is_list = '-l' in args
