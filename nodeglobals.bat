@@ -17,7 +17,7 @@ call :install  @qwen-code/qwen-code@latest
 call :install  @openai/codex
 call :install  @anthropic-ai/claude-code
 call :install  @github/copilot
-call :install  @google/antigravity
+call powershell -Command "irm https://antigravity.google/cli/install.ps1 | iex"
 call :install  @cline/cli
 call :install  tabnine
 
