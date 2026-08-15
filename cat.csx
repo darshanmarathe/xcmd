@@ -4,13 +4,21 @@
 using System.Windows.Forms;
 using System.Threading;
 
-System.Console.WriteLine("");
-// Read each line of the file into a string array. Each element
-// of the array is one line of the file.
-System.Console.WriteLine(Env.ScriptArgs[0] + "\\" + Env.ScriptArgs[1]);
-string[] lines = System.IO.File.ReadAllLines(Env.ScriptArgs[0] + "\\" + Env.ScriptArgs[1]);
+string filePath = GetFilePath(Env.ScriptArgs);
 
-if (IsSwitchAvaible("-l"))
+if (string.IsNullOrWhiteSpace(filePath))
+{
+    System.Console.Error.WriteLine("no path found ....    ");
+    System.Console.WriteLine("try cat <filename>");
+    System.Console.WriteLine("-c for copy file conent");
+    System.Console.WriteLine("-l to show line number");
+    System.Environment.Exit(1);
+}
+
+filePath = System.IO.Path.GetFullPath(filePath);
+string[] lines = System.IO.File.ReadAllLines(filePath);
+
+if (HasParam("-l"))
 {
     for (int i = 0; i  < lines.Length; i++)
     {
@@ -27,7 +35,7 @@ else
     }
 }
 
-if (IsSwitchAvaible("-c"))
+if (HasParam("-c"))
 {
     var content = string.Join("\n" , lines);
     var thread = new Thread(() => {
@@ -43,11 +51,26 @@ if (IsSwitchAvaible("-c"))
 
 
 
-bool IsSwitchAvaible(string swi){
+bool HasParam(string swi){
     foreach (var item in Env.ScriptArgs)
     {
         if(item == swi.ToLower() || item == swi.ToUpper())
             return true; 
     }
     return false;
+}
+
+bool IsSwitch(string value)
+{
+    return value == "-c" || value == "-C" || value == "-l" || value == "-L";
+}
+
+string GetFilePath(string[] args)
+{
+    foreach (var item in args)
+    {
+        if (!IsSwitch(item))
+            return item;
+    }
+    return null;
 }

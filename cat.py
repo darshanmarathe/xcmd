@@ -1,5 +1,4 @@
 import sys
-
 import subprocess
 
 
@@ -10,25 +9,30 @@ def copy_to_clipboard(text):
     process.communicate(input=text.encode())
 
 
-filePath = sys.argv[1]
-
-print(f"Reading file: {filePath} with python")
-
 args = sys.argv[1:]
+lower_args = [arg.lower() for arg in args]
 
-is_copy =  '-c' in args
-is_line = '-l' in args
+is_copy = '-c' in lower_args
+is_line = '-l' in lower_args
+filePath = next((arg for arg in args if arg.lower() not in ('-c', '-l')), None)
 
-str = ''
-index =0
-with open(filePath , 'r') as file:
+if not filePath:
+    print("no path found ....    ")
+    print("try cat <filename>")
+    print("-c for copy file conent")
+    print("-l to show line number")
+    sys.exit(1)
+
+content = ''
+index = 0
+with open(filePath, 'r') as file:
     for line in file:
         if is_copy:
-            str += line + '\n'
+            content += line
         if not is_line:
-            print(line.strip())
+            print(line, end='')
         else:
-            index+=1
-            print(f"{index}: {line.strip()}")
+            index += 1
+            print(f"{index}: {line}", end='')
 if is_copy:
-    copy_to_clipboard(str)
+    copy_to_clipboard(content)
