@@ -11,10 +11,11 @@ xcmd makes your good old command line super command line if you like bash it wil
 
  - [Git](Docs/Git.md)
  - [Docker](Docs/Docker.md)
- - [File and Folders](Docs/FilesAndFolder.md) 
- - [Utilities](Docs/Utils.md) 
+ - [File and Folders](Docs/FilesAndFolder.md)
+ - [Utilities](Docs/Utils.md)
+ - [XCMD Commands](XCMD_DOCUMENTATION.md)
  - Node and npm
- - Docker 
+ - Docker
  - Others
  - Editors
 
