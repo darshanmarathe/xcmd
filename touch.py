@@ -1,34 +1,28 @@
 import sys
 import os
 
-args = sys.argv[1:]
-currentPath = os.getcwd()
-
-
 def createFile(path):
-    if os.path.exists(path) == False:
+    if not os.path.exists(path):
         with open(path, 'w') as f:
             f.write('')
 
 def createDir(path):
-    if os.path.exists(path) == False:
+    if not os.path.exists(path):
         os.makedirs(path)
-    global currentPath  # Add this line
-    currentPath = path
-    print(currentPath)
 
+def main():
+    args = sys.argv[1:]
+    currentPath = os.getcwd()
 
-for i in args:
-    if i == "..":
-        currentPath = currentPath.split("\\")
-        currentPath.pop()
-        currentPath = "\\".join(currentPath)
-        continue
-    elif '.' in i:
-        createFile(currentPath + "\\" + i)
-    else:
-        createDir(currentPath + "\\" + i)
+    for arg in args:
+        if arg == "..":
+            currentPath = os.path.dirname(currentPath)
+        elif '.' in arg:
+            createFile(os.path.join(currentPath, arg))
+        else:
+            createDir(os.path.join(currentPath, arg))
 
+    print("Files and directories created successfully.")
 
-print("Files and directories created successfully.")
-sys.exit(0)
+if __name__ == "__main__":
+    main()

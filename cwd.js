@@ -1,9 +1,18 @@
+var path = require('path');
+var args = process.argv.slice(2);
 
-var args = [...process.argv]
+function print_help() {
+    console.log("Usage: cwd [path]");
+    console.log("Copies the current working directory (or specified path) to clipboard");
+}
 
-const { resolve } = require('path');
+if (args.includes('-h') || args.includes('--help')) {
+    print_help();
+    process.exit(0);
+}
 
-let path  = resolve(args[2])
-console.log(path)
+var targetPath = args[0] || process.cwd();
+var resolvedPath = path.resolve(targetPath);
 
-require('child_process').spawn('clip').stdin.end(path);
+console.log(resolvedPath);
+require('child_process').spawn('clip').stdin.end(resolvedPath);

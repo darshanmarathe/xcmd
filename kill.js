@@ -1,13 +1,25 @@
-const processToKill  = process.argv[2];
-console.log(processToKill);
-const child_process = require('child_process');
+var child_process = require('child_process');
 
-const displayProcessBy = (pattern) => {
-    let command = `ps -aux | grep ${pattern}`;
-    child_process.exec(command, (err, stdout, stdin) => {
-        if (err) throw err;
-        console.log(stdout);
-    });
+var processName = process.argv[2];
+
+if (!processName) {
+    console.error("Error: Please provide a process name to kill");
+    console.error("Usage: kill <process_name>");
+    process.exit(1);
 }
 
-displayProcessBy(processToKill);
+console.log("Killing process: " + processName);
+
+try {
+    var result = child_process.execSync('taskkill /F /IM ' + processName, { encoding: 'utf8' });
+    console.log("Process killed successfully");
+    console.log(result);
+    process.exit(0);
+} catch (error) {
+    if (error.status === 128) {
+        console.error("Error: Process '" + processName + "' not found");
+    } else {
+        console.error("Error killing process: " + error.stderr || error.message);
+    }
+    process.exit(1);
+}

@@ -1,10 +1,8 @@
-
 @echo off
 echo Current Branch Name
 echo ===================
 IF [%1]==[] (
- git rev-parse --abbrev-ref HEAD
+    git rev-parse --abbrev-ref HEAD
 ) ELSE (
-git branch -%1
+    git branch %*
 )
-set BACKDIR=%cd%

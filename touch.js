@@ -1,62 +1,29 @@
-var fs = require('fs');
- 
+const fs = require('fs');
+const path = require('path');
 
+const args = process.argv.slice(2);
+let currentPath = process.cwd();
 
-const thingsToCreate  = process.argv;
-thingsToCreate.shift()
-thingsToCreate.shift()
-
-var directoryPath = process.cwd();
-
-
-
-function getDirPath(path ="") {
-    if(path === "..")
-        {
-            let arr =directoryPath.split("\\")
-            if(arr[arr.length -1].indexOf(".") > -1)
-                arr.pop();
-     
-            arr.pop()
-            directoryPath = arr.join("\\")
-            return;
-        }
-    // if(path.indexOf(".") > -1)
-    // {
-        let arr =directoryPath.split("\\")
-        if(arr[arr.length -1].indexOf(".") > -1)
-            arr.pop();
-        directoryPath = arr.join("\\")
-       directoryPath=  directoryPath + "\\" + path;;
-        return;
-    // }
-    
-
-}
-
-
-function createFile(path){
- 
-// writeFile function with filename, content and callback function
-if(fs.existsSync(path) === false)    
-    fs.writeFileSync(path, '');
-}
-
-function createDir(path){
- if(fs.existsSync(path) === false)
-    fs.mkdirSync(path);
-}
-for (const name of thingsToCreate) {
-    getDirPath(name);
-    if(name != ".."){
-        if(name.indexOf(".") > -1){
-            createFile(directoryPath)
-        }else{
-            createDir(directoryPath)
-        }
+function createFile(filePath) {
+    if (!fs.existsSync(filePath)) {
+        fs.writeFileSync(filePath, '');
     }
-    
 }
 
-console.log("files created successfully...")
+function createDir(dirPath) {
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
+    }
+}
 
+for (const name of args) {
+    if (name === "..") {
+        currentPath = path.dirname(currentPath);
+    } else if (name.includes(".")) {
+        createFile(path.join(currentPath, name));
+    } else {
+        createDir(path.join(currentPath, name));
+    }
+}
+
+console.log("files created successfully...");

@@ -1,38 +1,41 @@
+using System;
 using System.IO;
-using System.Linq;
+using System.Collections.Generic;
 
-List<string> currentfolder = new List<string>();
+List<string> currentFolder = new List<string>();
 
-var workingfolder = Environment.CurrentDirectory;
+var workingFolder = Environment.CurrentDirectory;
 
-var  ArgsArray = Env.ScriptArgs.ToArray();
-
-
-foreach (var item in ArgsArray)
+foreach (var item in Env.ScriptArgs)
 {
     if (item == "..")
     {
-
-        RemoveLast(currentfolder);
+        RemoveLast(currentFolder);
         continue;
     }
 
+    var fullPath = Join(currentFolder) + "\\" + item;
 
     if (item.Contains("."))
     {
-        if (currentfolder.Count == 0)
-            File.Create(Join(currentfolder) + @"\" + item);
-        else
-            File.Create(Join(currentfolder) + @"\" + item);
+        if (!File.Exists(fullPath))
+        {
+            File.Create(fullPath).Dispose();
+        }
     }
     else
     {
-        currentfolder.Add(item);
-        Directory.CreateDirectory(Join(currentfolder));
+        currentFolder.Add(item);
+        var dirPath = Join(currentFolder);
+        if (!Directory.Exists(dirPath))
+        {
+            Directory.CreateDirectory(dirPath);
+        }
     }
-
 }
-System.Console.WriteLine("files created");
+
+Console.WriteLine("files created");
+
 void RemoveLast(List<string> list)
 {
     list.RemoveAt(list.Count - 1);
@@ -40,6 +43,5 @@ void RemoveLast(List<string> list)
 
 string Join(List<string> list)
 {
-    var retval =  workingfolder + @"\" + String.Join( @"\", list.ToArray());
-    return retval;
+    return workingFolder + "\\" + string.Join("\\", list.ToArray());
 }
