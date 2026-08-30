@@ -1,78 +1,145 @@
-# Xcmd Nodejs Related commands
+# Xcmd Node.js Related Commands
 
-- [Xcmd node js Commands](#xcmd-node-js-commands)
-    - [npi](#npi)
-    - [npg](#npg)
-    - [npr](#npr)
-    - [npu](#npu)
-    - [nodeglobals](#nodeglobals)
-    - [nodelegecy](#nodelegecy)
-   
+## Overview
 
-### npi 
+XCMD provides shortcuts for common Node.js and npm operations, making package management and script execution faster and more convenient.
 
-- Short cut for npm install
+## Command Reference
+
+### Package Management
+
+#### `npi`
+Short for `npm install`
+- Installs dependencies from package.json
+- Without arguments: `npm install`
+- With `-l` flag: installs with legacy peer deps
 
 ```batch
 npi
+npi -l
 ```
--  installs with install peer deps
+
+#### `npg`
+Short for `npm install -g`
+- Installs packages globally
+- Useful for dev tools, CLIs, and global utilities
 
 ```batch
-npi -l 
+npg <package>
+npg @angular/cli
 ```
 
-
-### npr 
-
-- Replaces npm run 
+#### `npu`
+Short for `npm uninstall`
+- Removes packages from node_modules
+- Preserves package.json entry by default
 
 ```batch
-npr <command>
+npu <package>
+npu lodash
 ```
 
-
-### npi 
-
-- Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
+#### `npr`
+Short for `npm run`
+- Runs npm scripts defined in package.json
+- If no argument: runs `npm run start`
 
 ```batch
-doc-prune
+npr
+npr build
+npr test
 ```
 
-
-### npi 
-
-- Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
+#### `npgu`
+Short for `npm uninstall -g`
+- Removes globally installed packages
 
 ```batch
-doc-prune
+npgu <package>
+npgu typescript
 ```
 
+### Node.js Environment
 
-### npi 
-
-- Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
+#### `nodeglobals`
+Lists globally installed npm packages
+- Shows package names and versions
+- Useful for checking what's available globally
 
 ```batch
-doc-prune
+nodeglobals
 ```
 
-
-### npi 
-
-- Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
+#### `nodelegacy`
+Runs Node.js with legacy mode (for older packages)
+- Enables compatibility mode for deprecated APIs
+- Useful for maintaining legacy Node.js projects
 
 ```batch
-doc-prune
+nodelegacy
 ```
 
+### Additional Tools
 
-### npi 
-
-- Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
+#### `npi`
+- Short for `npm install`
+- Installs dependencies with legacy peer deps when `-l` flag is used
 
 ```batch
-doc-prune
+npi
+npi -l
 ```
 
+## Usage Examples
+
+### Project Setup
+
+```bash
+# Clone and set up new project
+npi                 # Install dependencies
+npr build           # Build the project
+npr test            # Run tests
+```
+
+### Package Management
+
+```bash
+# Global tools
+npg @angular/cli
+npg typescript
+npg nodemon
+
+# Project dependencies
+npi                 # Local install
+npu lodash          # Remove package
+```
+
+### Script Execution
+
+```bash
+# Run npm scripts
+npr                 # npm run start
+npr build           # npm run build
+npr test            # npm run test
+```
+
+## Integration
+
+These Node.js commands work seamlessly with other XCMD utilities:
+- Use `git clone` to clone repositories
+- Use `ls` to view project structure
+- Use `cat` to inspect configuration files
+- Use `ps` to check for running Node processes
+
+## Requirements
+
+- Node.js must be installed and accessible in PATH
+- npm (comes with Node.js) must be available
+
+## Best Practices
+
+1. Always `npi` after cloning a new repository
+2. Use `npg` for dev tools that should be globally available
+3. Check `nodeglobals` when troubleshooting global package conflicts
+4. Use `npu` instead of manually deleting node_modules when removing packages
+5. Use `npr` to quickly run project scripts without remembering exact script names

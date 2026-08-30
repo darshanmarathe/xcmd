@@ -1,60 +1,235 @@
+# XCMD Other Commands
+
 ## Setup Machine
 
-Installs chocolaty and sets up machine with many of software(s) for e.g new languages like rust, julia text editors like sublime, vscode, atom and much much more just look into batch file remove / add whatever you need and run it with -y flag and goto sleep/coffee/movie by the time you are back machine is ready 
+Installs Chocolatey and sets up machine with many software packages for development:
+- New languages (Rust, Julia, etc.)
+- Text editors (Sublime, VS Code, Atom)
+- Many more development tools
 
-    - setupnacine
-    - setupmachine -y (install all software by default)
+```batch
+setupmachine -y        # Install all software by default
+```
 
 ## StartWork
 
-Just change this batch file for what ever your daily stuff pulling latest code opening visual studio code just be lazy and automate everything
+Customize this batch file for your daily workflow:
+- Pull latest code
+- Open Visual Studio Code
+- Automate everything you do daily
 
-    - startwork
+```bash
+startwork
+```
 
+## Commands for Git (Making you lazy...)
 
-# Commands for Git (Making you lazy...)
-## checkin
-checkin replaces [git add .  / git commit -m "your comment here" / git push] so now in case of fire checkin 
+### Checkin
 
-    - checkin   
-    - checkin "your comment here"
+Replaces `git add .` + `git commit -m "comment"` + `git push`
 
-## branch
-Quickly check which branch you are on replaces [git branch]
+```bash
+checkin                         # Opens editor for commit message
+checkin "Your comment here"     # Uses provided message
+```
 
-    - branch   
-    - branch a (list all branches)
+### Branch
 
-## status
-Quickly check what is the status of current branch you are on, replaces [git status]
+Quickly check which branch you are on
 
-    - status   
+```bash
+branch                          # Current branch
+branch a                        # List all branches
+```
 
-## clone
-Quickly clone repository [git clone]
-    - clone <repo_name> 
-    - clone <repo_name> <folderName>  
+### Status
 
+Quickly check current branch status
 
-# Commands Linux bash style(i call it bash++)
-## cat 
-to see whats in file 
+```bash
+status
+```
 
-    - cat <fileName>   
-    - cat <fileName> -l  (to see line numbers)
-    - cat <filename> -c  (see and copy to clipboard)
+### Clone
 
-## ls 
-to see whats in file 
+Quickly clone a repository
 
-    - ls   
-    - ls -l  (to see with lines)
-    - ls -c  (see and copy to clipboard)
+```bash
+clone <repo_name>
+clone <repo_name> <folder_name>
+```
 
+## Commands Linux Bash Style (bash++)
 
-# Commands Other 
-## bash
+### Cat
 
-Opens git bash in cmd you can exit command in bash to come back to cmd 
-   
-    - bash
+To see file contents
+
+```bash
+cat <file_name>              # Display file
+cat <file_name> -l           # With line numbers
+cat <file_name> -c           # Display and copy to clipboard
+```
+
+### Ls
+
+To see directory contents
+
+```bash
+ls                           # List directory
+ls -l                        # With details
+ls -c                        # Copy to clipboard
+```
+
+## Commands Other
+
+### Bash
+
+Opens Git Bash in CMD; exit with `exit` to return to CMD
+
+```bash
+bash
+```
+
+### Editors
+
+### Sublime
+
+Open Sublime Text editor
+
+```bash
+subl
+```
+
+### Vim
+
+Open Vim editor
+
+```bash
+vi
+```
+
+### VS Code
+
+Open Visual Studio Code
+
+```bash
+codei
+```
+
+### Terminal
+
+Open a new terminal window
+
+```bash
+terminal
+```
+
+## Utilities
+
+### AddToPath
+
+Add current directory to PATH
+
+```bash
+AddToPath
+```
+
+### Bash
+
+Open Git Bash
+
+```bash
+bash
+```
+
+### Bash10
+
+Show branch and status
+
+```bash
+bash10
+```
+
+### iisRok
+
+ngrok for IIS - Expose local IIS to internet
+
+```bash
+iisRok
+```
+
+### Kill
+
+Kill a process (requires admin mode)
+
+```bash
+kill node
+kill app1
+```
+
+### Mongo
+
+Start MongoDB
+
+```bash
+mongo
+```
+
+### Py
+
+Run Python code
+
+```bash
+py app.py
+```
+
+### Serv
+
+Start HTTP server in current directory
+
+```bash
+serv                 # Current directory
+serv dist            # Specific directory
+```
+
+### Zip
+
+Zip a folder (requires 7zip)
+
+```bash
+zip <foldername>
+```
+
+### Unzip
+
+Unzip a file
+
+```bash
+unzip <file_name>
+```
+
+### Tsw
+
+Start TypeScript in watch mode
+
+```bash
+tsw app.ts
+```
+
+### SetupMachine
+
+Set up machine for developer
+
+```bash
+setupmachine
+```
+
+## Additional Documentation
+
+For more detailed information:
+- [Docker Commands](Docs/Docker.md)
+- [Node.js Commands](Docs/Node.md)
+- [Git Commands](Docs/Git.md)
+- [File and Folder Commands](Docs/FilesAndFolder.md)
+- [Utility Commands](Docs/Utils.md)

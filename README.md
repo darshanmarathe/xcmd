@@ -10,14 +10,13 @@ XCMD makes your good old command line super command line. If you like bash, it w
 
 ## Documentation
 
-  - [Git](Docs/Git.md)
-  - [Docker](Docs/Docker.md)
-  - [File and Folders](Docs/FilesAndFolder.md)
-  - [Utilities](Docs/Utils.md)
-  - [Node and npm](Docs/Node.md)
-  - [Docker](Docs/Docker.md)
-  - [Others](Docs/Other.md)
-  - [Editors](Docs/Editors.md)
+- [Git](Docs/Git.md)
+- [Docker](Docs/Docker.md)
+- [File and Folders](Docs/FilesAndFolder.md)
+- [Utilities](Docs/Utils.md)
+- [Node and npm](Docs/Node.md)
+- [Others](Docs/Other.md)
+- [Editors](Docs/Editors.md)
 
 ## Tech
 
