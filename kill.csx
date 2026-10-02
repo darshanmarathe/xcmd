@@ -10,7 +10,7 @@ if (string.IsNullOrWhiteSpace(processToKill))
     Environment.Exit(1);
 }
 
-if (!Regex.IsMatch(processToKill, @"^[\w\-\.]+$"))
+    if (!Regex.IsMatch(processToKill, @"^[\w\-\.\s]+$"))
 {
     Console.Error.WriteLine($"Invalid process name: {processToKill}");
     Environment.Exit(1);

@@ -3,7 +3,7 @@ import sys
 import re
 
 def kill_process(process_name):
-    if not re.match(r'^[\w\-\.]+$', process_name):
+    if not re.match(r'^[\w\-\.\s]+$', process_name):
         print(f"Invalid process name: {process_name}")
         return False
     try:

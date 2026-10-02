@@ -11,7 +11,7 @@ if (!processName) {
 console.log("Killing process: " + processName);
 
 try {
-    var result = child_process.execSync('taskkill /F /IM ' + processName, { encoding: 'utf8' });
+    var result = child_process.execSync('taskkill /F /IM "' + processName + '"', { encoding: 'utf8' });
     console.log("Process killed successfully");
     console.log(result);
     process.exit(0);
