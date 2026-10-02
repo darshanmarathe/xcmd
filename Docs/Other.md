@@ -129,7 +129,7 @@ terminal
 
 ### AddToPath
 
-Add current directory to PATH
+Permanently adds current directory to the **User** PATH environment variable via `setx`. Affects new terminal sessions only.
 
 ```bash
 AddToPath
