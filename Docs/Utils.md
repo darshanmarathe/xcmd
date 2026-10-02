@@ -4,6 +4,7 @@
     - [AddToPath](#addtopath)
     - [bash](#bash)
     - [bash10](#bash10)
+    - [env](#env)
     - [iisRok](#iisrok)
     - [kill](#kill)
     - [mongo](#mongo)
@@ -44,7 +45,18 @@ Shows branch and status
 branch a
 ```
 
+### env
 
+Display all environment variables sorted alphabetically
+
+```batch
+env
+```
+
+Show help
+```batch
+env -h
+```
 
 ### iisRok
 
