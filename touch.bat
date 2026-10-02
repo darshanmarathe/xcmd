@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 call :main %*
 exit /b %errorlevel%
 
