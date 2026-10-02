@@ -2,27 +2,37 @@ const fs = require('fs');
 const path = require('path');
 
 const args = process.argv.slice(2);
-let currentPath = process.cwd();
+let baseDir;
+if (args.length && fs.existsSync(args[0]) && fs.statSync(args[0]).isDirectory()) {
+    baseDir = args.shift();
+} else {
+    baseDir = process.cwd();
+}
+let folderStack = [];
 
-function createFile(filePath) {
-    if (!fs.existsSync(filePath)) {
-        fs.writeFileSync(filePath, '');
-    }
+function isFileName(name) {
+    if (name === '..' || name === '.') return false;
+    const ext = path.extname(name);
+    return ext !== '' || (name.startsWith('.') && name.length > 1);
 }
 
-function createDir(dirPath) {
-    if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath, { recursive: true });
+for (const arg of args) {
+    if (arg === '..') {
+        folderStack.pop();
+        continue;
     }
-}
 
-for (const name of args) {
-    if (name === "..") {
-        currentPath = path.dirname(currentPath);
-    } else if (name.includes(".")) {
-        createFile(path.join(currentPath, name));
+    const currentDir = folderStack.length ? path.join(baseDir, ...folderStack) : baseDir;
+
+    if (isFileName(arg)) {
+        fs.mkdirSync(currentDir, { recursive: true });
+        const filePath = path.join(currentDir, arg);
+        if (!fs.existsSync(filePath)) {
+            fs.writeFileSync(filePath, '');
+        }
     } else {
-        createDir(path.join(currentPath, name));
+        folderStack.push(arg);
+        fs.mkdirSync(path.join(baseDir, ...folderStack), { recursive: true });
     }
 }
 

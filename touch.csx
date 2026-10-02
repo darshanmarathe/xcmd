@@ -4,20 +4,33 @@ using System.Collections.Generic;
 
 List<string> currentFolder = new List<string>();
 
+var scriptArgs = new List<string>(Env.ScriptArgs);
 var workingFolder = Environment.CurrentDirectory;
+if (scriptArgs.Count > 0 && Directory.Exists(scriptArgs[0]))
+{
+    workingFolder = scriptArgs[0];
+    scriptArgs.RemoveAt(0);
+}
 
-foreach (var item in Env.ScriptArgs)
+foreach (var item in scriptArgs)
 {
     if (item == "..")
     {
-        RemoveLast(currentFolder);
+        if (currentFolder.Count > 0)
+        {
+            currentFolder.RemoveAt(currentFolder.Count - 1);
+        }
         continue;
     }
 
-    var fullPath = Join(currentFolder) + "\\" + item;
+    var currentDir = currentFolder.Count > 0
+        ? Path.Combine(workingFolder, Path.Combine(currentFolder.ToArray()))
+        : workingFolder;
 
-    if (item.Contains("."))
+    if (IsFileName(item))
     {
+        Directory.CreateDirectory(currentDir);
+        var fullPath = Path.Combine(currentDir, item);
         if (!File.Exists(fullPath))
         {
             File.Create(fullPath).Dispose();
@@ -26,22 +39,18 @@ foreach (var item in Env.ScriptArgs)
     else
     {
         currentFolder.Add(item);
-        var dirPath = Join(currentFolder);
-        if (!Directory.Exists(dirPath))
-        {
-            Directory.CreateDirectory(dirPath);
-        }
+        var dirPath = Path.Combine(workingFolder, Path.Combine(currentFolder.ToArray()));
+        Directory.CreateDirectory(dirPath);
     }
 }
 
 Console.WriteLine("files created");
 
-void RemoveLast(List<string> list)
+bool IsFileName(string name)
 {
-    list.RemoveAt(list.Count - 1);
-}
-
-string Join(List<string> list)
-{
-    return workingFolder + "\\" + string.Join("\\", list.ToArray());
+    if (name.StartsWith(".") && name.Length > 1)
+    {
+        return true;
+    }
+    return Path.GetExtension(name) != "";
 }

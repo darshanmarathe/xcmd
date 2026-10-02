@@ -1,23 +1,26 @@
-@echo off
+rem @echo off
 call :main %*
 exit /b %errorlevel%
 
 :main
-WHERE python >NUL 2>NUL
-IF %ERRORLEVEL% == 0 (
-    python "%~dp0touch.py" %*
-    IF %ERRORLEVEL% == 0 EXIT /B 0
-)
+set "TARGET=%cd%"
+if "%TARGET:~-1%"=="\" set "TARGET=%TARGET%."
 
-WHERE node >NUL 2>NUL
-IF %ERRORLEVEL% == 0 (
-    node "%~dp0touch.js" %*
-    IF %ERRORLEVEL% == 0 EXIT /B 0
-)
+@REM  WHERE python >NUL 2>NUL
+@REM  IF %ERRORLEVEL% == 0 (
+@REM      python "%~dp0touch.py" "%TARGET%" %*
+@REM      IF %ERRORLEVEL% == 0 EXIT /B 0
+@REM  )
+
+@REM  WHERE node >NUL 2>NUL
+@REM  IF %ERRORLEVEL% == 0 (
+@REM      node "%~dp0touch.js" "%TARGET%" %*
+@REM      IF %ERRORLEVEL% == 0 EXIT /B 0
+@REM  )
 
 WHERE scriptcs >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    scriptcs "%~dp0touch.csx" -C -- %*
+    scriptcs "%~dp0touch.csx" -C -- "%TARGET%" %*
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
