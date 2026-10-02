@@ -6,17 +6,17 @@ exit /b %errorlevel%
 set "TARGET=%cd%"
 if "%TARGET:~-1%"=="\" set "TARGET=%TARGET%."
 
-@REM  WHERE python >NUL 2>NUL
-@REM  IF %ERRORLEVEL% == 0 (
-@REM      python "%~dp0touch.py" "%TARGET%" %*
-@REM      IF %ERRORLEVEL% == 0 EXIT /B 0
-@REM  )
+WHERE python >NUL 2>NUL
+IF %ERRORLEVEL% == 0 (
+    python "%~dp0touch.py" "%TARGET%" %*
+    IF %ERRORLEVEL% == 0 EXIT /B 0
+)
 
-@REM  WHERE node >NUL 2>NUL
-@REM  IF %ERRORLEVEL% == 0 (
-@REM      node "%~dp0touch.js" "%TARGET%" %*
-@REM      IF %ERRORLEVEL% == 0 EXIT /B 0
-@REM  )
+WHERE node >NUL 2>NUL
+IF %ERRORLEVEL% == 0 (
+    node "%~dp0touch.js" "%TARGET%" %*
+    IF %ERRORLEVEL% == 0 EXIT /B 0
+)
 
 WHERE scriptcs >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
