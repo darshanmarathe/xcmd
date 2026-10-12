@@ -10,7 +10,7 @@ cls
 echo "Testing chocolatey"
 choco install chocolatey-core.extension -y
 choco list
-choco upgrade all -v
+rem choco upgrade all -v
 pause
 cls
 echo "Installing essentials"
