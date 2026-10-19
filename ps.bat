@@ -3,9 +3,9 @@ call :main %*
 exit /b %errorlevel%
 
 :main
-WHERE python >NUL 2>NUL
+WHERE scriptcs >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    python "%~dp0ps.py" %*
+    scriptcs "%~dp0ps.csx" -- %*
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
@@ -15,12 +15,12 @@ IF %ERRORLEVEL% == 0 (
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
-WHERE scriptcs >NUL 2>NUL
+WHERE python >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    scriptcs "%~dp0ps.csx" -- %*
+    python "%~dp0ps.py" %*
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
-echo Error: No runtime found (python/node/scriptcs)
+echo Error: No runtime found (scriptcs/node/python)
 echo Please install one of them to use the ps command.
 EXIT /B 1

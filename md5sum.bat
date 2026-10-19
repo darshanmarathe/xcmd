@@ -3,9 +3,9 @@ call :main %*
 exit /b %errorlevel%
 
 :main
-WHERE python >NUL 2>NUL
+WHERE scriptcs >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    python "%~dp0md5sum.py" %*
+    scriptcs "%~dp0md5sum.csx" -- %*
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
@@ -15,12 +15,12 @@ IF %ERRORLEVEL% == 0 (
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
-WHERE scriptcs >NUL 2>NUL
+WHERE python >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    scriptcs "%~dp0md5sum.csx" -- %*
+    python "%~dp0md5sum.py" %*
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
-echo Error: No runtime found (python/node/scriptcs)
+echo Error: No runtime found (scriptcs/node/python)
 echo Please install one of them to use the md5sum command.
 EXIT /B 1

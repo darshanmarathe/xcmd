@@ -8,9 +8,9 @@ cls
 set "TARGET=%cd%"
 if "%TARGET:~-1%"=="\" set "TARGET=%TARGET%."
 
-WHERE python >NUL 2>NUL
+WHERE scriptcs >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    python "%~dp0list.py" "%TARGET%" %*
+    scriptcs "%~dp0list.csx" -- "%TARGET%" %*
     exit /b %errorlevel%
 )
 
@@ -20,12 +20,12 @@ IF %ERRORLEVEL% == 0 (
     exit /b %errorlevel%
 )
 
-WHERE scriptcs >NUL 2>NUL
+WHERE python >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    scriptcs "%~dp0list.csx" -- "%TARGET%" %*
+    python "%~dp0list.py" "%TARGET%" %*
     exit /b %errorlevel%
 )
 
-echo Error: No runtime found (python/node/scriptcs)
+echo Error: No runtime found (scriptcs/node/python)
 echo Please install one of them to use the ls command.
 exit /b 1

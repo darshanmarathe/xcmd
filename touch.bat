@@ -6,9 +6,9 @@ exit /b %errorlevel%
 set "TARGET=%cd%"
 if "%TARGET:~-1%"=="\" set "TARGET=%TARGET%."
 
-WHERE python >NUL 2>NUL
+WHERE scriptcs >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    python "%~dp0touch.py" "%TARGET%" %*
+    scriptcs "%~dp0touch.csx" -C -- "%TARGET%" %*
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
@@ -18,12 +18,12 @@ IF %ERRORLEVEL% == 0 (
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
-WHERE scriptcs >NUL 2>NUL
+WHERE python >NUL 2>NUL
 IF %ERRORLEVEL% == 0 (
-    scriptcs "%~dp0touch.csx" -C -- "%TARGET%" %*
+    python "%~dp0touch.py" "%TARGET%" %*
     IF %ERRORLEVEL% == 0 EXIT /B 0
 )
 
-echo Error: No runtime found (python/node/scriptcs)
+echo Error: No runtime found (scriptcs/node/python)
 echo Please install one of them to use the touch command.
 EXIT /B 1
