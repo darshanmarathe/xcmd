@@ -8,19 +8,43 @@ def copy_to_clipboard(text):
     process.communicate(input=text.encode())
 
 
+def get_cat_path(args):
+    for i, a in enumerate(args):
+        if a == '--cat-path' and i + 1 < len(args):
+            return args[i + 1]
+    return None
+
+
+def get_file_path(args):
+    i = 0
+    while i < len(args):
+        a = args[i]
+        if a == '--cat-path':
+            i += 2  # skip flag + value
+            continue
+        if a.lower() in ('-c', '-l') or a == '--self':
+            i += 1
+            continue
+        return a
+    return None
+
+
 def main():
     args = sys.argv[1:]
     lower_args = [arg.lower() for arg in args]
 
     is_copy = '-c' in lower_args
     is_line = '-l' in lower_args
-    filePath = next((arg for arg in args if arg.lower() not in ('-c', '-l')), None)
+    is_self = '--self' in args
+    cat_path = get_cat_path(args)
+    filePath = cat_path if is_self else get_file_path(args)
 
     if not filePath:
         print("no path found ....    ")
         print("try cat <filename>")
         print("-c for copy file content")
         print("-l to show line number")
+        print("--self to print the cat command itself")
         sys.exit(1)
 
     if not os.path.isfile(filePath):

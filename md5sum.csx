@@ -3,13 +3,30 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
+static class Log
+{
+    static void Write(ConsoleColor color, string prefix, string msg)
+    {
+        var prev = Console.ForegroundColor;
+        Console.ForegroundColor = color;
+        Console.Write($"[{prefix}] ");
+        Console.ForegroundColor = prev;
+        Console.WriteLine(msg);
+    }
+    public static void Info(string msg) => Write(ConsoleColor.Gray, "INFO", msg);
+    public static void Error(string msg) => Write(ConsoleColor.Red, "ERROR", msg);
+    public static void Warn(string msg) => Write(ConsoleColor.Yellow, "WARN", msg);
+    public static void Success(string msg) => Write(ConsoleColor.Green, "OK", msg);
+    public static void Raw(string msg) => Console.WriteLine(msg);
+}
+
 if (Env.ScriptArgs.Contains("-h") || Env.ScriptArgs.Contains("--help") || Env.ScriptArgs.Contains("/?"))
 {
-    System.Console.WriteLine("Usage: md5sum [options] [file]");
-    System.Console.WriteLine("Options:");
-    System.Console.WriteLine("  -b    Use binary mode");
-    System.Console.WriteLine("  -t    Use text mode (default)");
-    System.Console.WriteLine("  -h    Show this help");
+    Log.Raw("Usage: md5sum [options] [file]");
+    Log.Raw("Options:");
+    Log.Raw("  -b    Use binary mode");
+    Log.Raw("  -t    Use text mode (default)");
+    Log.Raw("  -h    Show this help");
     Environment.Exit(0);
 }
 
@@ -42,7 +59,7 @@ using (var md5 = MD5.Create())
         }
         
         byte[] hash = md5.ComputeHash(buffer);
-        Console.WriteLine(BitConverter.ToString(hash).Replace("-", "").ToLower() + "  -");
+        Log.Raw(BitConverter.ToString(hash).Replace("-", "").ToLower() + "  -");
     }
     else
     {
@@ -62,11 +79,11 @@ using (var md5 = MD5.Create())
                 }
                 
                 byte[] hash = md5.ComputeHash(buffer);
-                Console.WriteLine(BitConverter.ToString(hash).Replace("-", "").ToLower() + "  " + file);
+                Log.Raw(BitConverter.ToString(hash).Replace("-", "").ToLower() + "  " + file);
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine($"Error: {ex.Message}");
+                Log.Error($"Error: {ex.Message}");
             }
         }
     }

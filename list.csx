@@ -3,14 +3,31 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
+static class Log
+{
+    static void Write(ConsoleColor color, string prefix, string msg)
+    {
+        var prev = Console.ForegroundColor;
+        Console.ForegroundColor = color;
+        Console.Write($"[{prefix}] ");
+        Console.ForegroundColor = prev;
+        Console.WriteLine(msg);
+    }
+    public static void Info(string msg) => Write(ConsoleColor.Gray, "INFO", msg);
+    public static void Error(string msg) => Write(ConsoleColor.Red, "ERROR", msg);
+    public static void Warn(string msg) => Write(ConsoleColor.Yellow, "WARN", msg);
+    public static void Success(string msg) => Write(ConsoleColor.Green, "OK", msg);
+    public static void Raw(string msg) => Console.WriteLine(msg);
+}
+
 string CurrentDirectory = Env.ScriptArgs[0];
 
 if (Env.ScriptArgs.Contains("-h") || Env.ScriptArgs.Contains("--help") || Env.ScriptArgs.Contains("/?"))
 {
-    System.Console.WriteLine("Usage: ls [options] [path]");
-    System.Console.WriteLine("Options:");
-    System.Console.WriteLine("  -l    Long format (detailed listing)");
-    System.Console.WriteLine("  -h    Show this help");
+    Log.Raw("Usage: ls [options] [path]");
+    Log.Raw("Options:");
+    Log.Raw("  -l    Long format (detailed listing)");
+    Log.Raw("  -h    Show this help");
     Environment.Exit(0);
 }
 
@@ -23,18 +40,18 @@ if (string.IsNullOrEmpty(CurrentDirectory))
 
 if (!Directory.Exists(CurrentDirectory))
 {
-    Console.Error.WriteLine($"Error: Directory '{CurrentDirectory}' not found");
+    Log.Error($"Error: Directory '{CurrentDirectory}' not found");
     Environment.Exit(1);
 }
 
 CurrentDirectory = Path.GetFullPath(CurrentDirectory);
 var DirsArr = Directory.GetDirectories(CurrentDirectory);
 
-Console.WriteLine(" " + DirsArr.Count().ToString() + " directories in " + CurrentDirectory);
+    Log.Info(" " + DirsArr.Count().ToString() + " directories in " + CurrentDirectory);
 
-var filearr = Directory.GetFiles(CurrentDirectory);
-Console.WriteLine(" " + filearr.Count().ToString() + " files in " + CurrentDirectory);
-Console.WriteLine("");
+    var filearr = Directory.GetFiles(CurrentDirectory);
+    Log.Info(" " + filearr.Count().ToString() + " files in " + CurrentDirectory);
+    Log.Raw("");
 
 if (HasParam("-l"))
 {
@@ -58,16 +75,15 @@ void Print(string[] arr, bool isFile)
         if (isFile)
         {
             FileInfo oFileInfo = new FileInfo(file);
-            Console.WriteLine(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + oFileInfo.LastWriteTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  " + file.Replace(CurrentDirectory, ""));
+            Log.Raw(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + oFileInfo.LastWriteTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  " + file.Replace(CurrentDirectory, ""));
         }
         else
         {
-            Console.Write(file.Replace(CurrentDirectory + @"\", ""));
-            Console.Write(" ");
+            Log.Raw(file.Replace(CurrentDirectory + @"\", ""));
         }
     }
-    Console.WriteLine("");
-    Console.WriteLine("");
+    Log.Raw("");
+    Log.Raw("");
 }
 
 void PrintList(string[] arr, bool isFile)
@@ -77,11 +93,11 @@ void PrintList(string[] arr, bool isFile)
         if (isFile)
         {
             FileInfo oFileInfo = new FileInfo(file);
-            Console.WriteLine(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + oFileInfo.LastWriteTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  ");
+            Log.Raw(oFileInfo.CreationTime.ToString("dd-MMM-yyyy") + "  " + oFileInfo.LastWriteTime.ToString("dd-MMM-yyyy hh:mm:ss") + "  " + oFileInfo.Length.ToString() + "  " + oFileInfo.Extension + "  ");
         }
-        Console.WriteLine(file.Replace(CurrentDirectory + @"\", ""));
+        Log.Raw(file.Replace(CurrentDirectory + @"\", ""));
     }
-    Console.WriteLine("");
+    Log.Raw("");
 }
 
 bool HasParam(string swi)

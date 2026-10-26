@@ -3,6 +3,23 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
+static class Log
+{
+    static void Write(ConsoleColor color, string prefix, string msg)
+    {
+        var prev = Console.ForegroundColor;
+        Console.ForegroundColor = color;
+        Console.Write($"[{prefix}] ");
+        Console.ForegroundColor = prev;
+        Console.WriteLine(msg);
+    }
+    public static void Info(string msg) => Write(ConsoleColor.Gray, "INFO", msg);
+    public static void Error(string msg) => Write(ConsoleColor.Red, "ERROR", msg);
+    public static void Warn(string msg) => Write(ConsoleColor.Yellow, "WARN", msg);
+    public static void Success(string msg) => Write(ConsoleColor.Green, "OK", msg);
+    public static void Raw(string msg) => Console.WriteLine(msg);
+}
+
 public class Tree
 {
     private static readonly HashSet<string> IgnoredNames = new HashSet<string>
@@ -18,7 +35,7 @@ public class Tree
         string targetDir = args.Length > 0 ? args[0] : Environment.CurrentDirectory;
         string resolvedDir = Path.GetFullPath(targetDir);
 
-        Console.WriteLine(resolvedDir);
+        Log.Raw(resolvedDir);
 
         try
         {
@@ -30,17 +47,17 @@ public class Tree
             }
             else
             {
-                Console.WriteLine($"Error: {resolvedDir} is not a directory.");
+                Log.Error($"Error: {resolvedDir} is not a directory.");
                 Environment.Exit(1);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: Could not access {resolvedDir}. {ex.Message}");
+            Log.Error($"Error: Could not access {resolvedDir}. {ex.Message}");
             Environment.Exit(1);
         }
 
-        Console.WriteLine($"\n{totalDirs} directories, {totalFiles} files");
+        Log.Raw($"\n{totalDirs} directories, {totalFiles} files");
     }
 
     private static void GenerateTree(string dirPath, string prefix)
@@ -78,7 +95,7 @@ public class Tree
             bool isLast = i == filteredItems.Count - 1;
             string connector = isLast ? "└── " : "├── ";
 
-            Console.WriteLine(prefix + connector + item);
+            Log.Raw(prefix + connector + item);
 
             try
             {

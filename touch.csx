@@ -2,6 +2,23 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
+static class Log
+{
+    static void Write(ConsoleColor color, string prefix, string msg)
+    {
+        var prev = Console.ForegroundColor;
+        Console.ForegroundColor = color;
+        Console.Write($"[{prefix}] ");
+        Console.ForegroundColor = prev;
+        Console.WriteLine(msg);
+    }
+    public static void Info(string msg) => Write(ConsoleColor.Gray, "INFO", msg);
+    public static void Error(string msg) => Write(ConsoleColor.Red, "ERROR", msg);
+    public static void Warn(string msg) => Write(ConsoleColor.Yellow, "WARN", msg);
+    public static void Success(string msg) => Write(ConsoleColor.Green, "OK", msg);
+    public static void Raw(string msg) => Console.WriteLine(msg);
+}
+
 List<string> currentFolder = new List<string>();
 
 var scriptArgs = new List<string>(Env.ScriptArgs);
@@ -44,7 +61,7 @@ foreach (var item in scriptArgs)
     }
 }
 
-Console.WriteLine("files created");
+    Log.Success("files created");
 
 bool IsFileName(string name)
 {

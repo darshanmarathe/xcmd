@@ -1,13 +1,30 @@
 using System;
 using System.Linq;
 
+static class Log
+{
+    static void Write(ConsoleColor color, string prefix, string msg)
+    {
+        var prev = Console.ForegroundColor;
+        Console.ForegroundColor = color;
+        Console.Write($"[{prefix}] ");
+        Console.ForegroundColor = prev;
+        Console.WriteLine(msg);
+    }
+    public static void Info(string msg) => Write(ConsoleColor.Gray, "INFO", msg);
+    public static void Error(string msg) => Write(ConsoleColor.Red, "ERROR", msg);
+    public static void Warn(string msg) => Write(ConsoleColor.Yellow, "WARN", msg);
+    public static void Success(string msg) => Write(ConsoleColor.Green, "OK", msg);
+    public static void Raw(string msg) => Console.WriteLine(msg);
+}
+
 if (Env.ScriptArgs.Contains("-h") || Env.ScriptArgs.Contains("--help") || Env.ScriptArgs.Contains("/?"))
 {
-    System.Console.WriteLine("Usage: env [options]");
-    System.Console.WriteLine("Options:");
-    System.Console.WriteLine("  -h    Show this help");
-    System.Console.WriteLine("");
-    System.Console.WriteLine("Display environment variables.");
+    Log.Raw("Usage: env [options]");
+    Log.Raw("Options:");
+    Log.Raw("  -h    Show this help");
+    Log.Raw("");
+    Log.Raw("Display environment variables.");
     Environment.Exit(0);
 }
 
@@ -23,5 +40,5 @@ sortedKeys.Sort();
 
 foreach (var key in sortedKeys)
 {
-    Console.WriteLine($"{key}={envVars[key]}");
+    Log.Raw($"{key}={envVars[key]}");
 }

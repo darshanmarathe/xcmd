@@ -1,26 +1,43 @@
 using System;
 using System.Diagnostics;
 
+static class Log
+{
+    static void Write(ConsoleColor color, string prefix, string msg)
+    {
+        var prev = Console.ForegroundColor;
+        Console.ForegroundColor = color;
+        Console.Write($"[{prefix}] ");
+        Console.ForegroundColor = prev;
+        Console.WriteLine(msg);
+    }
+    public static void Info(string msg) => Write(ConsoleColor.Gray, "INFO", msg);
+    public static void Error(string msg) => Write(ConsoleColor.Red, "ERROR", msg);
+    public static void Warn(string msg) => Write(ConsoleColor.Yellow, "WARN", msg);
+    public static void Success(string msg) => Write(ConsoleColor.Green, "OK", msg);
+    public static void Raw(string msg) => Console.WriteLine(msg);
+}
+
 if (Env.ScriptArgs.Contains("-h") || Env.ScriptArgs.Contains("--help") || Env.ScriptArgs.Contains("/?"))
 {
-    System.Console.WriteLine("Usage: sleep [number][suffix]...");
-    System.Console.WriteLine("  suffix may be:");
-    System.Console.WriteLine("    s - seconds (default)");
-    System.Console.WriteLine("    m - minutes");
-    System.Console.WriteLine("    h - hours");
-    System.Console.WriteLine("    d - days");
-    System.Console.WriteLine("");
-    System.Console.WriteLine("Examples:");
-    System.Console.WriteLine("  sleep 5      # Sleep for 5 seconds");
-    System.Console.WriteLine("  sleep 1m     # Sleep for 1 minute");
-    System.Console.WriteLine("  sleep 2h 30m # Sleep for 2 hours and 30 minutes");
+    Log.Raw("Usage: sleep [number][suffix]...");
+    Log.Raw("  suffix may be:");
+    Log.Raw("    s - seconds (default)");
+    Log.Raw("    m - minutes");
+    Log.Raw("    h - hours");
+    Log.Raw("    d - days");
+    Log.Raw("");
+    Log.Raw("Examples:");
+    Log.Raw("  sleep 5      # Sleep for 5 seconds");
+    Log.Raw("  sleep 1m     # Sleep for 1 minute");
+    Log.Raw("  sleep 2h 30m # Sleep for 2 hours and 30 minutes");
     Environment.Exit(0);
 }
 
 if (Env.ScriptArgs.Length == 0)
 {
-    Console.Error.WriteLine("Error: missing operand");
-    Console.Error.WriteLine("Try 'sleep --help' for more information.");
+    Log.Error("Error: missing operand");
+    Log.Error("Try 'sleep --help' for more information.");
     Environment.Exit(1);
 }
 
@@ -31,7 +48,7 @@ foreach (var arg in Env.ScriptArgs)
     double duration = ParseDuration(arg);
     if (duration < 0)
     {
-        Console.Error.WriteLine($"Error: invalid time interval '{arg}'");
+        Log.Error($"Error: invalid time interval '{arg}'");
         Environment.Exit(1);
     }
     totalSeconds += duration;
